@@ -14,6 +14,10 @@ public class Juggler implements Performer {
 	public Juggler(int beanBags) {
 		this.beanBags = beanBags;
 	}
+	
+	public Juggler(String beanBags) {
+		System.out.println("III waant to say " + beanBags);;
+	}
 
 	public void perform() throws PerformerException {
 		System.out.println("Juggling " + beanBags + " beanbags");

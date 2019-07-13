@@ -4,7 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id = "duke" class = "app.juggler.Juggler" />
+	<bean id = "duke" class = "app.juggler.Juggler">
+		<constructor-arg value="Heeey, u want to kill me"></constructor-arg>
+	</bean>
 	
 
 </beans>
