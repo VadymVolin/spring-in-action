@@ -31,4 +31,11 @@
 
 	<bean id="auditorium" class="app.auditorium.Auditorium"></bean>
 
+	<bean id = "saxophone" class = "app.instrument.Saxophone"></bean>
+
+	<bean id="kenny" class="app.instrumental.Instrumentalist">
+		<property name="song" value="Jingle Bells"></property>
+		<property name="instrument" ref="saxophone"></property>
+	</bean>
+
 </beans>
