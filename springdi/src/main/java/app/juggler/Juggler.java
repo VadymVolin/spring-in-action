@@ -15,13 +15,13 @@ public class Juggler implements Performer {
 		this.beanBags = beanBags;
 	}
 	
-	public Juggler(String beanBags) {
-		System.out.println("III waant to say " + beanBags);;
+	public Juggler(String beanBags1) {
+		System.out.println("init " + beanBags1  + "with balls count " + beanBags);;
 	}
 	
 	public Juggler(int beanBags, String beanBags1) {
 		this.beanBags = beanBags;
-		System.out.println("III waant to say " + beanBags1);
+		System.out.println("init " + beanBags1 + "with balls count " + beanBags);
 	}
 
 	public void perform() throws PerformerException {

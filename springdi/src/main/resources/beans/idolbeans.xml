@@ -2,19 +2,33 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+	default-init-method="turnOnLights"
+	default-destroy-method="turnOffLights">
 
-	<bean id = "duke" class = "app.juggler.Juggler">
-		<constructor-arg value="Heeey, u want to kill me"></constructor-arg>
-	</bean>
-	
-	<bean id = "sonnet29" class = "app.sonnet.Sonnet29"></bean>
-	
-	<bean id = "poeticDuke" class = "app.juggler.PoeticJuggler">
-		<constructor-arg value = "15"></constructor-arg>
-		<constructor-arg value = "a say sonnet because i'm a poetic juggler"></constructor-arg>
+	<bean id="poeticDuke" class="app.juggler.PoeticJuggler">
+		<constructor-arg value="15"></constructor-arg>
+		<constructor-arg value=" poetic juggler"></constructor-arg>
 		<constructor-arg ref="sonnet29"></constructor-arg>
 	</bean>
-	
+
+	<bean id="duke" class="app.juggler.Juggler">
+		<constructor-arg value="'duke'"></constructor-arg>
+	</bean>
+
+	<bean id="duke1" class="app.juggler.Juggler">
+		<constructor-arg value="duke1"></constructor-arg>
+	</bean>
+
+	<bean id="duke2" class="app.juggler.Juggler">
+		<constructor-arg value="duke2"></constructor-arg>
+	</bean>
+
+	<bean id="sonnet29" class="app.sonnet.Sonnet29"></bean>
+
+	<bean id="theStage" class="app.stage.Stage"
+		factory-method="getInstance"></bean>
+
+	<bean id="auditorium" class="app.auditorium.Auditorium"></bean>
 
 </beans>
