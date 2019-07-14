@@ -8,5 +8,7 @@
 		<constructor-arg value="Heeey, u want to kill me"></constructor-arg>
 	</bean>
 	
+	<bean id = "sonnet29" class = "app.sonet.Sonnet29"></bean>
+	
 
 </beans>
