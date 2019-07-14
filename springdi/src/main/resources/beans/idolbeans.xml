@@ -8,7 +8,13 @@
 		<constructor-arg value="Heeey, u want to kill me"></constructor-arg>
 	</bean>
 	
-	<bean id = "sonnet29" class = "app.sonet.Sonnet29"></bean>
+	<bean id = "sonnet29" class = "app.sonnet.Sonnet29"></bean>
+	
+	<bean id = "poeticDuke" class = "app.juggler.PoeticJuggler">
+		<constructor-arg value = "15"></constructor-arg>
+		<constructor-arg value = "a say sonnet because i'm a poetic juggler"></constructor-arg>
+		<constructor-arg ref="sonnet29"></constructor-arg>
+	</bean>
 	
 
 </beans>

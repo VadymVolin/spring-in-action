@@ -11,7 +11,7 @@ public class Performance {
 	public static void main(String[] args) {
 		
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("/beans/idolbeans.xml");
-		Performer performer = (Performer) ctx.getBean("duke");
+		Performer performer = (Performer) ctx.getBean("poeticDuke");
 		
 		try {
 			performer.perform();

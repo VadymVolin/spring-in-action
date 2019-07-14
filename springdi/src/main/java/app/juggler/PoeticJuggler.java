@@ -16,6 +16,11 @@ public class PoeticJuggler extends Juggler {
 		super(beansBags);
 		this.poem = poem;
 	}
+
+	public PoeticJuggler (int beansBags, String beansBags2, Poem poem) {
+		super(beansBags, beansBags2);
+		this.poem = poem;
+	}
 	
 	public void perform() throws PerformerException {
 		super.perform();

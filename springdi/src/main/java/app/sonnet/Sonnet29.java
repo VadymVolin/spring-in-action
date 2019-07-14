@@ -1,4 +1,4 @@
-package app.sonet;
+package app.sonnet;
 
 import app.poem.Poem;
 

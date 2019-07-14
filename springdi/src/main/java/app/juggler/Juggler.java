@@ -18,6 +18,11 @@ public class Juggler implements Performer {
 	public Juggler(String beanBags) {
 		System.out.println("III waant to say " + beanBags);;
 	}
+	
+	public Juggler(int beanBags, String beanBags1) {
+		this.beanBags = beanBags;
+		System.out.println("III waant to say " + beanBags1);
+	}
 
 	public void perform() throws PerformerException {
 		System.out.println("Juggling " + beanBags + " beanbags");
