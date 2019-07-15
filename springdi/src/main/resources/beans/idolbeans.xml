@@ -38,8 +38,8 @@
 	<bean id="saxophone" class="app.instrument.Saxophone"></bean>
 
 	<bean id="guitar" class="app.instrument.Guitar"></bean>
-	<bean id="harmonica" class="app.instrument.Cymbal"></bean>
-	<bean id="cymbal" class="app.instrument.Harmonica"></bean>
+	<bean id="cymbal" class="app.instrument.Cymbal"></bean>
+	<bean id="harmonica" class="app.instrument.Harmonica"></bean>
 
 	<bean id="kenny" class="app.instrumental.Instrumentalist"
 		p:song=" Jingle Bells" p:instrument-ref="saxophone">
@@ -47,11 +47,11 @@
 
 	<bean id="hank" class="app.instrumental.OneManBand">
 		<property name="instruments">
-			<list>
-				<ref bean="guitar" />
-				<ref bean="cymbal" />
-				<ref bean="harmonica" />
-			</list>
+			<map>
+				<entry key="GUITAR" value-ref="guitar" />
+				<entry key="CYMBAL" value-ref="cymbal" />
+				<entry key="HARMONICA" value-ref="harmonica" />
+			</map>
 		</property>
 	</bean>
 
