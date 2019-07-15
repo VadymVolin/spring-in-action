@@ -16,6 +16,7 @@ public class Performance {
 		Performer performer2 = (Performer) ctx.getBean("duke1");
 		Performer performer3 = (Performer) ctx.getBean("duke2");
 		Performer kenny = (Performer) ctx.getBean("kenny");
+		Performer hank = (Performer) ctx.getBean("hank");
 
 		try {
 			performer.perform();
@@ -23,6 +24,7 @@ public class Performance {
 			performer2.perform();
 			performer3.perform();
 			kenny.perform();
+			hank.perform();
 		} catch (PerformerException e) {
 			e.printStackTrace();
 		}

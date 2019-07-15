@@ -36,6 +36,11 @@
 
 
 	<bean id="saxophone" class="app.instrument.Saxophone"></bean>
+
+	<bean id="guitar" class="app.instrument.Guitar"></bean>
+	<bean id="harmonica" class="app.instrument.Cymbal"></bean>
+	<bean id="cymbal" class="app.instrument.Harmonica"></bean>
+
 	<bean id="kenny" class="app.instrumental.Instrumentalist"
 		p:song=" Jingle Bells" p:instrument-ref="saxophone">
 	</bean>
