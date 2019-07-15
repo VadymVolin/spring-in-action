@@ -47,11 +47,11 @@
 
 	<bean id="hank" class="app.instrumental.OneManBand">
 		<property name="instruments">
-			<map>
-				<entry key="GUITAR" value-ref="guitar" />
-				<entry key="CYMBAL" value-ref="cymbal" />
-				<entry key="HARMONICA" value-ref="harmonica" />
-			</map>
+			<props>
+				<prop key="GUITAR">Strum strum strum</prop>
+				<prop key="CYMBAL">tlink tlink tlink</prop>
+				<prop key="HARMONICA">pram pram pram</prop>
+			</props>
 		</property>
 	</bean>
 

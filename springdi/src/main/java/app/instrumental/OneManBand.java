@@ -1,6 +1,6 @@
 package app.instrumental;
 
-import java.util.Map;
+import java.util.Properties;
 
 import app.instrument.Instrument;
 import app.performer.Performer;
@@ -8,21 +8,22 @@ import app.performer.exception.PerformerException;
 
 public class OneManBand implements Performer {
 	
-	private Map<String, Instrument> instruments;
+	private Properties instruments;
 	
 	public OneManBand() {
 		
 	}
 	
-	public void setInstruments (Map<String, Instrument> instruments) {
+	public void setInstruments (Properties instruments) {
 		this.instruments = instruments;
 	}
 
 	public void perform() throws PerformerException {
-		for (String instrName : instruments.keySet()) {
-			System.out.print(instrName + " : ");
-			Instrument instrument = instruments.get(instrName);
-			instrument.play();
+		for (Object instrName : instruments.keySet()) {
+			String name = (String) instrName;
+			System.out.print(name + " : ");
+			String instrument = (String) instruments.get(name);
+			System.out.println(instrument);
 		}
 	}
 
