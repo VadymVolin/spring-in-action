@@ -36,13 +36,14 @@
 
 
 	<bean id="saxophone" class="app.instrument.Saxophone"></bean>
+	<bean id="piano" class="app.instrument.Piano"></bean>
 
 	<bean id="guitar" class="app.instrument.Guitar"></bean>
 	<bean id="cymbal" class="app.instrument.Cymbal"></bean>
 	<bean id="harmonica" class="app.instrument.Harmonica"></bean>
 
 	<bean id="kenny" class="app.instrumental.Instrumentalist"
-		p:song=" Jingle Bells" p:instrument-ref="saxophone">
+		p:song="Jingle Bells" p:instrument-ref="saxophone">
 	</bean>
 
 	<bean id="hank" class="app.instrumental.OneManBand">
@@ -53,6 +54,12 @@
 				<prop key="HARMONICA">pram pram pram</prop>
 			</props>
 		</property>
+	</bean>
+
+	<bean id="carl" class="app.instrumental.Instrumentalist">
+		<property name="song" value="#{kenny.song}"></property>
+		<property name="instrument"
+			value="#{(kenny.song eq 'Jingle Belllls')?saxophone:piano}"></property>
 	</bean>
 
 </beans>

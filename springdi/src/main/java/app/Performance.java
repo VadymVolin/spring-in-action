@@ -17,14 +17,16 @@ public class Performance {
 		Performer performer3 = (Performer) ctx.getBean("duke2");
 		Performer kenny = (Performer) ctx.getBean("kenny");
 		Performer hank = (Performer) ctx.getBean("hank");
+		Performer carl = (Performer) ctx.getBean("carl");
 
 		try {
-			performer.perform();
-			performer1.perform();
-			performer2.perform();
-			performer3.perform();
+//			performer.perform();
+//			performer1.perform();
+//			performer2.perform();
+//			performer3.perform();
 			kenny.perform();
-			hank.perform();
+//			hank.perform();
+			carl.perform();
 		} catch (PerformerException e) {
 			e.printStackTrace();
 		}
