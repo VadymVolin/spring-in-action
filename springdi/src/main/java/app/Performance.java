@@ -14,14 +14,25 @@ public class Performance {
 
 	public static void main(String[] args) {
 
+//		Main Container like a BeanFactory who have a lot of opportunities
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("/beans/idolbeans.xml");
+		
+//		poets/juggler
 		Performer performer = (Performer) ctx.getBean("poeticDuke");
 		Performer performer1 = (Performer) ctx.getBean("duke");
 		Performer performer2 = (Performer) ctx.getBean("duke1");
 		Performer performer3 = (Performer) ctx.getBean("duke2");
+		
+//		musician
 		Performer kenny = (Performer) ctx.getBean("kenny");
-		Performer hank = (Performer) ctx.getBean("hank");
+		Performer david = (Performer) ctx.getBean("david");
+		Performer frank = (Performer) ctx.getBean("frank");
 		Performer carl = (Performer) ctx.getBean("carl");
+		
+//		magician
+		Performer harry = (Performer) ctx.getBean("harry");
+		
+		
 //		CityList c = (CityList) ctx.getBean("cityList");
 ////		
 //		for (String city : c.getLists()) {
@@ -33,8 +44,11 @@ public class Performance {
 //			performer2.perform();
 //			performer3.perform();
 			kenny.perform();
-//			hank.perform();
+			david.perform();
+			frank.perform();
 			carl.perform();
+			
+			harry.perform();
 		} catch (PerformerException e) {
 			e.printStackTrace();
 		}

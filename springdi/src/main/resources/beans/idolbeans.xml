@@ -45,9 +45,19 @@
 	<bean id="cymbal" class="app.instrument.Cymbal"></bean>
 	<bean id="harmonica" class="app.instrument.Harmonica"></bean>
 
-	<bean id="kenny" class="app.instrumental.Instrumentalist"
-		p:song="Jingle Bells" p:instrument-ref="saxophone">
+	<bean id="baseSaxophonist"
+		class="app.instrumental.Instrumentalist" abstract="true">
+		<property name="song" value="Jingle Bells"></property>
+		<property name="instrument" ref="saxophone"></property>
 	</bean>
+
+	<bean id="kenny" parent="baseSaxophonist"></bean>
+
+	<bean id="frank" parent="baseSaxophonist">
+		<property name="song" value="Mary had a little lamb"></property>
+	</bean>
+
+	<bean id="david" parent="baseSaxophonist"></bean>
 
 	<bean id="hank" class="app.instrumental.OneManBand">
 		<property name="instruments">
@@ -65,26 +75,41 @@
 			value="#{(kenny.song eq 'Jingle Belllls')?saxophone:piano}"></property>
 	</bean>
 
+	<!-- Magician -->
+
+	<bean id="harry" class="app.magic.Magician">
+		<property name="magicBox" ref="magicBox"></property>
+		<property name="magicWords" value="Bippity boppity boo"></property>
+	</bean>
+
+	<bean id="magicBox" class="app.magic.MagicBoxImpl">
+		<replaced-method name="getContents" replacer="tigerReplacer"></replaced-method>	
+	</bean>
+	
+	<bean id = "tigerReplacer" class = "app.magic.TigerReplacer"></bean>
+
+
+	<!-- work with util: collection -->
 	<util:list id="cities">
-		<bean class="app.habuma.cities.City" p:name="Chicago" p:state="IL"
-			p:population="2853114"></bean>
-		<bean class="app.habuma.cities.City" p:name="Atlanta" p:state="GA"
-			p:population="537958"></bean>
+		<bean class="app.habuma.cities.City" p:name="Chicago"
+			p:state="IL" p:population="2853114"></bean>
+		<bean class="app.habuma.cities.City" p:name="Atlanta"
+			p:state="GA" p:population="537958"></bean>
 		<bean class="app.habuma.cities.City" p:name="Dallas" p:state="TX"
 			p:population="1279910"></bean>
-		<bean class="app.habuma.cities.City" p:name="Houston" p:state="TX"
-			p:population="2242193"></bean>
+		<bean class="app.habuma.cities.City" p:name="Houston"
+			p:state="TX" p:population="2242193"></bean>
 		<bean class="app.habuma.cities.City" p:name="Odessa" p:state="TX"
 			p:population="90943"></bean>
-		<bean class="app.habuma.cities.City" p:name="El paso" p:state="TX"
-			p:population="613190"></bean>
+		<bean class="app.habuma.cities.City" p:name="El paso"
+			p:state="TX" p:population="613190"></bean>
 		<bean class="app.habuma.cities.City" p:name="Jal" p:state="NM"
 			p:population="1996"></bean>
-		<bean class="app.habuma.cities.City" p:name="Las Cruces" p:state="NM"
-			p:population="91865"></bean>
+		<bean class="app.habuma.cities.City" p:name="Las Cruces"
+			p:state="NM" p:population="91865"></bean>
 	</util:list>
 
-	<bean id="cityList" class = "app.habuma.cities.CityList">
+	<bean id="cityList" class="app.habuma.cities.CityList">
 		<property name="lists"
 			value="#{cities.?[population gt 100000].![name + ', ' + state]}"></property>
 	</bean>
