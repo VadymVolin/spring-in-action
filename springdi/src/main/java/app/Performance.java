@@ -1,8 +1,12 @@
 package app;
 
+import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import app.habuma.cities.City;
+import app.habuma.cities.CityList;
+import app.habuma.cities.CityState;
 import app.performer.Performer;
 import app.performer.exception.PerformerException;
 
@@ -18,7 +22,11 @@ public class Performance {
 		Performer kenny = (Performer) ctx.getBean("kenny");
 		Performer hank = (Performer) ctx.getBean("hank");
 		Performer carl = (Performer) ctx.getBean("carl");
-
+//		CityList c = (CityList) ctx.getBean("cityList");
+////		
+//		for (String city : c.getLists()) {
+//			System.out.println(city);
+//		}
 		try {
 //			performer.perform();
 //			performer1.perform();
