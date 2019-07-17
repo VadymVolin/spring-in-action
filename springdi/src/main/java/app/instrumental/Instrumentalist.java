@@ -1,9 +1,12 @@
 package app.instrumental;
 
+import org.springframework.beans.factory.annotation.Configurable;
+
 import app.instrument.Instrument;
 import app.performer.Performer;
 import app.performer.exception.PerformerException;
 
+@Configurable("pianist")
 public class Instrumentalist implements Performer {
 
 	private String song;

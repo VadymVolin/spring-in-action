@@ -80,6 +80,16 @@
 		<property name="song" value="GreenSleeves"></property>
 	</bean>
 
+	<!-- injection non-spring components -->
+
+	<bean id="pianist" class="app.instrumental.Instrumentalist"
+		abstract="true">
+		<property name="song" value="Chopsticks"></property>
+		<property name="instrument">
+			<bean class="app.instrument.Piano"></bean>
+		</property>
+	</bean>
+
 	<!-- Magician -->
 
 	<bean id="harry" class="app.magic.Magician">

@@ -40,6 +40,7 @@ public class Performance {
 //			System.out.println(city);
 //		}
 		try {
+			
 //			performer.perform();
 //			performer1.perform();
 //			performer2.perform();
