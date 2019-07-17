@@ -17,6 +17,8 @@
         <property name="phoneNumber" value="888-555-1212"/>
     </bean>
 
+<!--    create bean with editor and have result to convert string to phone number-->
+
     <bean id="contact" class="org.phonenums.phoneproj.contact.Contact">
         <property name="phoneNumber" ref="infoPhone"/>
     </bean>
