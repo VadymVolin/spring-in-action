@@ -41,7 +41,7 @@
 	<bean id="saxophone" class="app.instrument.Saxophone"></bean>
 	<bean id="piano" class="app.instrument.Piano"></bean>
 
-	<bean id="guitar" class="app.instrument.Guitar"></bean>
+	<bean id="guitar" class="app.instrument.Guitar" scope="prototype"></bean>
 	<bean id="cymbal" class="app.instrument.Cymbal"></bean>
 	<bean id="harmonica" class="app.instrument.Harmonica"></bean>
 
@@ -75,6 +75,11 @@
 			value="#{(kenny.song eq 'Jingle Belllls')?saxophone:piano}"></property>
 	</bean>
 
+	<bean id="stevie" class="app.instrumental.AbstractInstrumentalist">
+		<lookup-method name="getInstrument" bean="guitar" />
+		<property name="song" value="GreenSleeves"></property>
+	</bean>
+
 	<!-- Magician -->
 
 	<bean id="harry" class="app.magic.Magician">
@@ -83,10 +88,11 @@
 	</bean>
 
 	<bean id="magicBox" class="app.magic.MagicBoxImpl">
-		<replaced-method name="getContents" replacer="tigerReplacer"></replaced-method>	
+		<replaced-method name="getContents"
+			replacer="tigerReplacer"></replaced-method>
 	</bean>
-	
-	<bean id = "tigerReplacer" class = "app.magic.TigerReplacer"></bean>
+
+	<bean id="tigerReplacer" class="app.magic.TigerReplacer"></bean>
 
 
 	<!-- work with util: collection -->

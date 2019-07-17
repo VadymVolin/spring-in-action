@@ -28,6 +28,7 @@ public class Performance {
 		Performer david = (Performer) ctx.getBean("david");
 		Performer frank = (Performer) ctx.getBean("frank");
 		Performer carl = (Performer) ctx.getBean("carl");
+		Performer stevie = (Performer) ctx.getBean("stevie");
 		
 //		magician
 		Performer harry = (Performer) ctx.getBean("harry");
@@ -47,6 +48,7 @@ public class Performance {
 			david.perform();
 			frank.perform();
 			carl.perform();
+			stevie.perform();
 			
 			harry.perform();
 		} catch (PerformerException e) {
