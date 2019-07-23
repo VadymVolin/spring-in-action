@@ -7,8 +7,7 @@ import org.springframework.context.ApplicationListener;
 public class RefreshListener implements ApplicationListener<CourseFullEvent> {
 
     public void onApplicationEvent(CourseFullEvent event) {
-        System.out.println("we see event!!!");
-        System.out.println(event.getCourse().getDescription());
+        System.out.println("the course is full");
     }
 
 }

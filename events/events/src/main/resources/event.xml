@@ -1,15 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/util
+                    	http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
-    <bean id = "refreshListener" 
-        class = "app.course.events.listener.RefreshListener">
+    <bean id="refreshListener"
+          class="app.course.events.listener.RefreshListener" >
     </bean>
 
-    <bean id = "course" 
-        class = "app.course.Course">
-        <constructor-arg value=""/>
-        <property name = "description" value = "Math"></property>
+    <bean id="onAddListener"
+          class="app.course.events.listener.AddOnListener" >
     </bean>
+
+    <bean id="studentsImpl"
+          class="app.beanknowledge.StudentServiceImpl" >
+    </bean>
+
+    <bean id="course"
+          class="app.course.Course">
+        <constructor-arg value="Math"/>
+    </bean>
+    <bean id="student1" p:firstname = "Vadim" p:lastname = "Volin" class="app.beanknowledge.Student"/>
+    <bean id="student2" p:firstname = "Dima" p:lastname = "Vorm" class="app.beanknowledge.Student"/>
+    <bean id="student3" p:firstname = "Elena" p:lastname = "Dec" class="app.beanknowledge.Student"/>
+    <bean id="student4" p:firstname = "Olha" p:lastname = "Ploew" class="app.beanknowledge.Student"/>
+    <bean id="student5" p:firstname = "Oksana" p:lastname = "Volina" class="app.beanknowledge.Student"/>
+    <bean id="student6" p:firstname = "Bill" p:lastname = "Green" class="app.beanknowledge.Student"/>
+    <bean id="student7" p:firstname = "John" p:lastname = "Johns" class="app.beanknowledge.Student"/>
+    <bean id="student8" p:firstname = "Josh" p:lastname = "Hertley" class="app.beanknowledge.Student"/>
+    <bean id="student9" p:firstname = "Oleg" p:lastname = "Smirnov" class="app.beanknowledge.Student"/>
+    <bean id="student10" p:firstname = "Tom" p:lastname = "Sayer" class="app.beanknowledge.Student"/>
+    <bean id="student11" p:firstname = "Drake" p:lastname = "Ramore" class="app.beanknowledge.Student"/>
+    <bean id="student12" p:firstname = "Rob" p:lastname = "Williams" class="app.beanknowledge.Student"/>
+    <bean id="student13" p:firstname = "Bob" p:lastname = "Bobanski" class="app.beanknowledge.Student"/>
+    <bean id="student14" p:firstname = "Lenny" p:lastname = "Gucci" class="app.beanknowledge.Student"/>
+    <bean id="student15" p:firstname = "Kris" p:lastname = "Linski" class="app.beanknowledge.Student"/>
+    <bean id="student16" p:firstname = "Linda" p:lastname = "Mone" class="app.beanknowledge.Student"/>
+    <bean id="student17" p:firstname = "Max" p:lastname = "Tkachenko" class="app.beanknowledge.Student"/>
+    <bean id="student18" p:firstname = "Mike" p:lastname = "Tyson" class="app.beanknowledge.Student"/>
+    <bean id="student19" p:firstname = "Bryce" p:lastname = "Broknar" class="app.beanknowledge.Student"/>
+    <bean id="student20" p:firstname = "Den" p:lastname = "Bolshunov" class="app.beanknowledge.Student"/>
+    <bean id="student21" p:firstname = "Vlad" p:lastname = "Volin" class="app.beanknowledge.Student"/>
+    <bean id="student22" p:firstname = "Ihor" p:lastname = "Kirichenko" class="app.beanknowledge.Student"/>
+
+
+    <util:list id="students" value-type="app.beanknowledge.Student">
+        <ref bean="student1"></ref>
+        <ref bean="student2"></ref>
+        <ref bean="student3"></ref>
+        <ref bean="student4"/>
+        <ref bean="student5"></ref>
+        <ref bean="student6"></ref>
+        <ref bean="student7"></ref>
+        <ref bean="student8"></ref>
+        <ref bean="student9"/>
+        <ref bean="student10"></ref>
+        <ref bean="student11"></ref>
+        <ref bean="student12"></ref>
+        <ref bean="student13"></ref>
+        <ref bean="student14"></ref>
+        <ref bean="student15"></ref>
+        <ref bean="student16"></ref>
+        <ref bean="student17"></ref>
+        <ref bean="student18"></ref>
+        <ref bean="student19"></ref>
+        <ref bean="student20"></ref>
+        <ref bean="student21"></ref>
+        <ref bean="student22"></ref>
+    </util:list>
 
 </beans>
