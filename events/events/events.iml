@@ -15,6 +15,12 @@
         <fileset id="fileset" name="Event" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/event.xml</file>
         </fileset>
+        <fileset id="fileset2" name="Scripting" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/scripting.xml</file>
+        </fileset>
+        <fileset id="fileset3" name="Scripting2" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/scripting2.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>
@@ -29,8 +35,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="library" name="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER" level="application" />
+    <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
@@ -40,5 +45,63 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.beanshell:bsh:2.0b4" level="project" />
+    <orderEntry type="library" name="Maven: org.jruby:jruby:9.2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jruby:jruby-stdlib:9.2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jruby:jruby-complete:9.2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jruby:jruby-core:9.2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jnr:jnr-netdb:1.1.6" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jnr:jnr-enxio:0.19" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jnr:jnr-unixsocket:0.20" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jnr:jnr-posix:3.0.49" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jnr:jnr-constants:0.9.12" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jnr:jffi:1.2.18" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jnr:jffi:native:1.2.18" level="project" />
+    <orderEntry type="library" name="Maven: org.jruby.joni:joni:2.1.26" level="project" />
+    <orderEntry type="library" name="Maven: org.jruby.jcodings:jcodings:1.0.43" level="project" />
+    <orderEntry type="library" name="Maven: org.jruby:dirgra:0.3" level="project" />
+    <orderEntry type="library" name="Maven: com.headius:invokebinder:1.11" level="project" />
+    <orderEntry type="library" name="Maven: com.headius:options:1.4" level="project" />
+    <orderEntry type="library" name="Maven: com.jcraft:jzlib:1.1.3" level="project" />
+    <orderEntry type="library" name="Maven: com.martiansoftware:nailgun-server:0.9.1" level="project" />
+    <orderEntry type="library" name="Maven: joda-time:joda-time:2.9.9" level="project" />
+    <orderEntry type="library" name="Maven: com.headius:backport9:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-ant:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.ant:ant:1.10.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.ant:ant-junit:1.10.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.ant:ant-launcher:1.10.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.ant:ant-antlr:1.10.5" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-cli-picocli:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: info.picocli:picocli:3.8.2" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-console:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-datetime:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-docgenerator:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: com.thoughtworks.qdox:qdox:1.12.1" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-groovydoc:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-groovysh:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: jline:jline:2.14.6" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-jmx:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-json:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-jsr223:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-macro:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-nio:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-servlet:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-sql:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-swing:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-templates:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-test:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-test-junit5:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-launcher:1.3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-engine:1.3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.1.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.3.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.junit.jupiter:junit-jupiter-api:5.3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-testng:3.0.0-alpha-4" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.testng:testng:6.14.3" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.beust:jcommander:1.72" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-xml:3.0.0-alpha-4" level="project" />
   </component>
 </module>
