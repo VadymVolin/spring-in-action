@@ -15,7 +15,7 @@ public class Performance {
 	public static void main(String[] args) {
 
 //		Main Container like a BeanFactory who have a lot of opportunities
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("/beans/idolbeans.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("/beans/idolbeans.xml", "/beans/autoInj.xml");
 		
 //		poets/juggler
 		Performer performer = (Performer) ctx.getBean("poeticDuke");
@@ -25,6 +25,9 @@ public class Performance {
 		
 //		musician
 		Performer kenny = (Performer) ctx.getBean("kenny");
+		// autoconfig
+		Performer kenny2 = (Performer) ctx.getBean("kenny2");
+
 		Performer david = (Performer) ctx.getBean("david");
 		Performer frank = (Performer) ctx.getBean("frank");
 		Performer carl = (Performer) ctx.getBean("carl");
@@ -45,13 +48,27 @@ public class Performance {
 //			performer1.perform();
 //			performer2.perform();
 //			performer3.perform();
+
+			System.out.println(kenny.toString());
 			kenny.perform();
-			david.perform();
-			frank.perform();
-			carl.perform();
-			stevie.perform();
-			
-			harry.perform();
+
+//			david.toString();
+//			david.perform();
+//
+//			frank.toString();
+//			frank.perform();
+//
+//			carl.toString();
+//			carl.perform();
+//
+//			stevie.toString();
+//			stevie.perform();
+
+			System.out.println(kenny2.toString());
+			kenny2.perform();
+
+//			harry.toString();
+//			harry.perform();
 		} catch (PerformerException e) {
 			e.printStackTrace();
 		}

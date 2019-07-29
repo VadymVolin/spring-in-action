@@ -9,12 +9,26 @@ import app.performer.exception.PerformerException;
 @Configurable("pianist")
 public class Instrumentalist implements Performer {
 
+	private String name;
 	private String song;
 	private Instrument instrument;
 
 	public void perform() throws PerformerException {
 		System.out.println("Playing " + song + " : ");
 		instrument.play();
+	}
+
+	@Override
+	public String toString() {
+		return (name == null ? "" : name) + " singe " + song + " -- " + instrument.toString();
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public void setSong(String song) {

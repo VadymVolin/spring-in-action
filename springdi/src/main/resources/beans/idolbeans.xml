@@ -10,54 +10,56 @@
 	default-init-method="turnOnLights"
 	default-destroy-method="turnOffLights">
 
+<!--	<import resource="autoInj.xml"/>-->
+
 	<bean id="poeticDuke" class="app.juggler.PoeticJuggler">
-		<constructor-arg value="15"></constructor-arg>
-		<constructor-arg value=" poetic juggler"></constructor-arg>
+		<constructor-arg value="15"/>
+		<constructor-arg value=" poetic juggler"/>
 		<constructor-arg>
-			<bean id="sonnet29" class="app.sonnet.Sonnet29"></bean>
+			<bean id="sonnet29" class="app.sonnet.Sonnet29"/>
 		</constructor-arg>
 	</bean>
 
 	<bean id="duke" class="app.juggler.Juggler">
-		<constructor-arg value="'duke'"></constructor-arg>
+		<constructor-arg value="'duke'"/>
 	</bean>
 
 	<bean id="duke1" class="app.juggler.Juggler">
-		<constructor-arg value="duke1"></constructor-arg>
+		<constructor-arg value="duke1"/>
 	</bean>
 
 	<bean id="duke2" class="app.juggler.Juggler">
-		<constructor-arg value="duke2"></constructor-arg>
+		<constructor-arg value="duke2"/>
 	</bean>
 
 
 	<bean id="theStage" class="app.stage.Stage"
-		factory-method="getInstance"></bean>
-
-	<bean id="auditorium" class="app.auditorium.Auditorium"></bean>
+		  factory-method="getInstance"/>
 
 
+	<bean id="auditorium" class="app.auditorium.Auditorium"/>
 
-	<bean id="saxophone" class="app.instrument.Saxophone"></bean>
-	<bean id="piano" class="app.instrument.Piano"></bean>
 
-	<bean id="guitar" class="app.instrument.Guitar" scope="prototype"></bean>
-	<bean id="cymbal" class="app.instrument.Cymbal"></bean>
-	<bean id="harmonica" class="app.instrument.Harmonica"></bean>
+	<bean id="saxophone" class="app.instrument.Saxophone"/>
+	<bean id="piano" class="app.instrument.Piano"/>
+
+	<bean id="guitar" class="app.instrument.Guitar" scope="prototype"/>
+	<bean id="cymbal" class="app.instrument.Cymbal"/>
+	<bean id="harmonica" class="app.instrument.Harmonica"/>
 
 	<bean id="baseSaxophonist"
 		class="app.instrumental.Instrumentalist" abstract="true">
-		<property name="song" value="Jingle Bells"></property>
-		<property name="instrument" ref="saxophone"></property>
+		<property name="song" value="Jingle Bells"/>
+		<property name="instrument" ref="saxophone"/>
 	</bean>
 
-	<bean id="kenny" parent="baseSaxophonist"></bean>
+	<bean id="kenny" parent="baseSaxophonist"/>
 
 	<bean id="frank" parent="baseSaxophonist">
-		<property name="song" value="Mary had a little lamb"></property>
+		<property name="song" value="Mary had a little lamb"/>
 	</bean>
 
-	<bean id="david" parent="baseSaxophonist"></bean>
+	<bean id="david" parent="baseSaxophonist"/>
 
 	<bean id="hank" class="app.instrumental.OneManBand">
 		<property name="instruments">
