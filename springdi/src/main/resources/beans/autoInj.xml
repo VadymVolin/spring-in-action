@@ -11,7 +11,7 @@
        default-destroy-method="turnOffLights">
 
     <!--    <import resource="idolbeans.xml"/>-->
-
+    <!-- by Name -->
     <!--
         <bean id="instrument" class="app.instrument.Saxophone"/>
 
@@ -21,11 +21,23 @@
         </bean>
     -->
 
+    <!--    by Type -->
+    <!--    <bean id="instrument" class="app.instrument.Saxophone" primary="true"/>-->
+    <!--    <bean id="saxophone" class="app.instrument.Saxophone" primary="false"/>-->
+    <!--    <bean id="saxophone2" class="app.instrument.Saxophone" autowire-candidate = "false"/>-->
+
+    <!--    <bean id="kenny2" class="app.instrumental.Instrumentalist" autowire="byType">-->
+    <!--        <property name="name" value="kenny2"/>-->
+    <!--        <property name="song" value="Jingle Bells"/>-->
+    <!--    </bean>-->
+
+    <!-- by constructor-->
+
     <bean id="instrument" class="app.instrument.Saxophone" primary="true"/>
     <bean id="saxophone" class="app.instrument.Saxophone" primary="false"/>
-    <bean id="saxophone2" class="app.instrument.Saxophone" autowire-candidate = "false"/>
+    <bean id="saxophone2" class="app.instrument.Saxophone" autowire-candidate="false"/>
 
-    <bean id="kenny2" class="app.instrumental.Instrumentalist" autowire="byType">
+    <bean id="kenny2" class="app.instrumental.Instrumentalist" autowire="constructor">
         <property name="name" value="kenny2"/>
         <property name="song" value="Jingle Bells"/>
     </bean>

@@ -6,6 +6,9 @@
         <fileset id="fileset" name="AutoInj" removed="false">
           <file>file://$MODULE_DIR$/resources/beans/autoInj.xml</file>
         </fileset>
+        <fileset id="fileset2" name="Idolbeans" removed="false">
+          <file>file://$MODULE_DIR$/resources/beans/idolbeans.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>

@@ -13,6 +13,20 @@ public class Instrumentalist implements Performer {
 	private String song;
 	private Instrument instrument;
 
+	public Instrumentalist(Instrument instrument) {
+		this.instrument = instrument;
+	}
+
+	public Instrumentalist(String name, String song, Instrument instrument) {
+		this.name = name;
+		this.song = song;
+		this.instrument = instrument;
+	}
+
+	public Instrumentalist() {
+
+	}
+
 	public void perform() throws PerformerException {
 		System.out.println("Playing " + song + " : ");
 		instrument.play();

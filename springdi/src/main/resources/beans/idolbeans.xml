@@ -1,135 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
 						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 						http://www.springframework.org/schema/util
                     	http://www.springframework.org/schema/util/spring-util-2.5.xsd"
-	default-init-method="turnOnLights"
-	default-destroy-method="turnOffLights">
+       default-init-method="turnOnLights"
+       default-destroy-method="turnOffLights">
 
-<!--	<import resource="autoInj.xml"/>-->
+    <!--	<import resource="autoInj.xml"/>-->
 
-	<bean id="poeticDuke" class="app.juggler.PoeticJuggler">
-		<constructor-arg value="15"/>
-		<constructor-arg value=" poetic juggler"/>
-		<constructor-arg>
-			<bean id="sonnet29" class="app.sonnet.Sonnet29"/>
-		</constructor-arg>
-	</bean>
+    <bean id="poeticDuke" class="app.juggler.PoeticJuggler">
+        <constructor-arg value="15"/>
+        <constructor-arg value=" poetic juggler"/>
+        <constructor-arg>
+            <bean id="sonnet29" class="app.sonnet.Sonnet29"/>
+        </constructor-arg>
+    </bean>
 
-	<bean id="duke" class="app.juggler.Juggler">
-		<constructor-arg value="'duke'"/>
-	</bean>
+    <bean id="duke" class="app.juggler.Juggler">
+        <constructor-arg value="'duke'"/>
+    </bean>
 
-	<bean id="duke1" class="app.juggler.Juggler">
-		<constructor-arg value="duke1"/>
-	</bean>
+    <bean id="duke1" class="app.juggler.Juggler">
+        <constructor-arg value="duke1"/>
+    </bean>
 
-	<bean id="duke2" class="app.juggler.Juggler">
-		<constructor-arg value="duke2"/>
-	</bean>
-
-
-	<bean id="theStage" class="app.stage.Stage"
-		  factory-method="getInstance"/>
+    <bean id="duke2" class="app.juggler.Juggler">
+        <constructor-arg value="duke2"/>
+    </bean>
 
 
-	<bean id="auditorium" class="app.auditorium.Auditorium"/>
+    <bean id="theStage" class="app.stage.Stage"
+          factory-method="getInstance"/>
 
 
-	<bean id="saxophone" class="app.instrument.Saxophone"/>
-	<bean id="piano" class="app.instrument.Piano"/>
-
-	<bean id="guitar" class="app.instrument.Guitar" scope="prototype"/>
-	<bean id="cymbal" class="app.instrument.Cymbal"/>
-	<bean id="harmonica" class="app.instrument.Harmonica"/>
-
-	<bean id="baseSaxophonist"
-		class="app.instrumental.Instrumentalist" abstract="true">
-		<property name="song" value="Jingle Bells"/>
-		<property name="instrument" ref="saxophone"/>
-	</bean>
-
-	<bean id="kenny" parent="baseSaxophonist"/>
-
-	<bean id="frank" parent="baseSaxophonist">
-		<property name="song" value="Mary had a little lamb"/>
-	</bean>
-
-	<bean id="david" parent="baseSaxophonist"/>
-
-	<bean id="hank" class="app.instrumental.OneManBand">
-		<property name="instruments">
-			<props>
-				<prop key="GUITAR">Strum strum strum</prop>
-				<prop key="CYMBAL">tlink tlink tlink</prop>
-				<prop key="HARMONICA">pram pram pram</prop>
-			</props>
-		</property>
-	</bean>
-
-	<bean id="carl" class="app.instrumental.Instrumentalist">
-		<property name="song" value="#{kenny.song}"></property>
-		<property name="instrument"
-			value="#{(kenny.song eq 'Jingle Belllls')?saxophone:piano}"></property>
-	</bean>
-
-	<bean id="stevie" class="app.instrumental.AbstractInstrumentalist">
-		<lookup-method name="getInstrument" bean="guitar" />
-		<property name="song" value="GreenSleeves"></property>
-	</bean>
-
-	<!-- injection non-spring components -->
-
-	<bean id="pianist" class="app.instrumental.Instrumentalist"
-		abstract="true">
-		<property name="song" value="Chopsticks"></property>
-		<property name="instrument">
-			<bean class="app.instrument.Piano"></bean>
-		</property>
-	</bean>
-
-	<!-- Magician -->
-
-	<bean id="harry" class="app.magic.Magician">
-		<property name="magicBox" ref="magicBox"></property>
-		<property name="magicWords" value="Bippity boppity boo"></property>
-	</bean>
-
-	<bean id="magicBox" class="app.magic.MagicBoxImpl">
-		<replaced-method name="getContents"
-			replacer="tigerReplacer"></replaced-method>
-	</bean>
-
-	<bean id="tigerReplacer" class="app.magic.TigerReplacer"></bean>
+    <bean id="auditorium" class="app.auditorium.Auditorium"/>
 
 
-	<!-- work with util: collection -->
-	<util:list id="cities">
-		<bean class="app.habuma.cities.City" p:name="Chicago"
-			p:state="IL" p:population="2853114"></bean>
-		<bean class="app.habuma.cities.City" p:name="Atlanta"
-			p:state="GA" p:population="537958"></bean>
-		<bean class="app.habuma.cities.City" p:name="Dallas" p:state="TX"
-			p:population="1279910"></bean>
-		<bean class="app.habuma.cities.City" p:name="Houston"
-			p:state="TX" p:population="2242193"></bean>
-		<bean class="app.habuma.cities.City" p:name="Odessa" p:state="TX"
-			p:population="90943"></bean>
-		<bean class="app.habuma.cities.City" p:name="El paso"
-			p:state="TX" p:population="613190"></bean>
-		<bean class="app.habuma.cities.City" p:name="Jal" p:state="NM"
-			p:population="1996"></bean>
-		<bean class="app.habuma.cities.City" p:name="Las Cruces"
-			p:state="NM" p:population="91865"></bean>
-	</util:list>
+    <bean id="saxophone" class="app.instrument.Saxophone"/>
+    <bean id="piano" class="app.instrument.Piano" autowire-candidate="false"/>
 
-	<bean id="cityList" class="app.habuma.cities.CityList">
-		<property name="lists"
-			value="#{cities.?[population gt 100000].![name + ', ' + state]}"></property>
-	</bean>
+    <bean id="guitar" class="app.instrument.Guitar" scope="prototype" autowire-candidate="false"/>
+    <bean id="cymbal" class="app.instrument.Cymbal" autowire-candidate="false"/>
+    <bean id="harmonica" class="app.instrument.Harmonica" autowire-candidate="false"/>
+
+    <bean id="baseSaxophonist"
+          class="app.instrumental.Instrumentalist" abstract="true">
+        <property name="song" value="Jingle Bells"/>
+        <property name="instrument" ref="saxophone"/>
+    </bean>
+
+    <!--	<bean id="kenny" parent="baseSaxophonist"/>-->
+    <bean id="kenny" class="app.instrumental.Instrumentalist" autowire="byType">
+        <property name="name" value="kenny"></property>
+        <property name="song" value="Jingle Bells"></property>
+    </bean>
+
+    <bean id="frank" parent="baseSaxophonist">
+        <property name="song" value="Mary had a little lamb"/>
+    </bean>
+
+    <bean id="david" parent="baseSaxophonist"/>
+
+    <bean id="hank" class="app.instrumental.OneManBand">
+        <property name="instruments">
+            <props>
+                <prop key="GUITAR">Strum strum strum</prop>
+                <prop key="CYMBAL">tlink tlink tlink</prop>
+                <prop key="HARMONICA">pram pram pram</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="carl" class="app.instrumental.Instrumentalist">
+        <property name="song" value="#{kenny.song}"></property>
+        <property name="instrument"
+                  value="#{(kenny.song eq 'Jingle Belllls')?saxophone:piano}"></property>
+    </bean>
+
+    <bean id="stevie" class="app.instrumental.AbstractInstrumentalist">
+        <lookup-method name="getInstrument" bean="guitar"/>
+        <property name="song" value="GreenSleeves"></property>
+    </bean>
+
+    <!-- injection non-spring components -->
+
+    <bean id="pianist" class="app.instrumental.Instrumentalist"
+          abstract="true">
+        <property name="song" value="Chopsticks"></property>
+        <property name="instrument">
+            <bean class="app.instrument.Piano"></bean>
+        </property>
+    </bean>
+
+    <!-- Magician -->
+
+    <bean id="harry" class="app.magic.Magician">
+        <property name="magicBox" ref="magicBox"></property>
+        <property name="magicWords" value="Bippity boppity boo"></property>
+    </bean>
+
+    <bean id="magicBox" class="app.magic.MagicBoxImpl">
+        <replaced-method name="getContents"
+                         replacer="tigerReplacer"></replaced-method>
+    </bean>
+
+    <bean id="tigerReplacer" class="app.magic.TigerReplacer"></bean>
+
+
+    <!-- work with util: collection -->
+    <util:list id="cities">
+        <bean class="app.habuma.cities.City" p:name="Chicago"
+              p:state="IL" p:population="2853114"></bean>
+        <bean class="app.habuma.cities.City" p:name="Atlanta"
+              p:state="GA" p:population="537958"></bean>
+        <bean class="app.habuma.cities.City" p:name="Dallas" p:state="TX"
+              p:population="1279910"></bean>
+        <bean class="app.habuma.cities.City" p:name="Houston"
+              p:state="TX" p:population="2242193"></bean>
+        <bean class="app.habuma.cities.City" p:name="Odessa" p:state="TX"
+              p:population="90943"></bean>
+        <bean class="app.habuma.cities.City" p:name="El paso"
+              p:state="TX" p:population="613190"></bean>
+        <bean class="app.habuma.cities.City" p:name="Jal" p:state="NM"
+              p:population="1996"></bean>
+        <bean class="app.habuma.cities.City" p:name="Las Cruces"
+              p:state="NM" p:population="91865"></bean>
+    </util:list>
+
+    <bean id="cityList" class="app.habuma.cities.CityList">
+        <property name="lists"
+                  value="#{cities.?[population gt 100000].![name + ', ' + state]}"></property>
+    </bean>
 
 </beans>

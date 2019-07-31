@@ -8,4 +8,8 @@ public class Saxophone implements Instrument {
 		System.out.println("Toot Toot Toot");
 	}
 
+	@Override
+	public String toString() {
+		return "saxophone";
+	}
 }
