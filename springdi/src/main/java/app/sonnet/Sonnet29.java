@@ -4,7 +4,7 @@ import app.poem.Poem;
 
 public class Sonnet29 implements Poem {
 
-	private static String[] LINES = {
+	private static final String[] LINES = {
 				"Когда в раздоре с миром и судьбой,",
 				"Припомнив годы, полные невзгод,",
 				"Тревожу я бесплодною мольбой", 

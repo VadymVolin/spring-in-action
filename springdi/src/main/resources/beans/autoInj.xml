@@ -4,7 +4,7 @@
        xmlns:util="http://www.springframework.org/schema/util"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 						http://www.springframework.org/schema/util
                     	http://www.springframework.org/schema/util/spring-util-2.5.xsd"
        default-init-method="turnOnLights"
@@ -41,5 +41,12 @@
         <property name="name" value="kenny2"/>
         <property name="song" value="Jingle Bells"/>
     </bean>
+
+    <bean id="poetDukeeeeeeeee" class="app.juggler.PoeticJuggler" autowire="constructor"/>
+
+    <!--not work with spring 3.0-->
+    <!--    <bean id="poetDukeeeeeeeee" class="app.juggler.PoeticJuggler" autowire="autodetect"/>-->
+
+    <bean id="sonnet29" class="app.sonnet.Sonnet29"/>
 
 </beans>
