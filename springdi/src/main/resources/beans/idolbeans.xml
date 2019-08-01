@@ -2,9 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+						 http://www.springframework.org/schema/context
+						 http://www.springframework.org/schema/context/spring-context-3.0.xsd
 						http://www.springframework.org/schema/util
                     	http://www.springframework.org/schema/util/spring-util-2.5.xsd"
        default-init-method="turnOnLights"
@@ -54,9 +57,10 @@
     </bean>
 
     <!--	<bean id="kenny" parent="baseSaxophonist"/>-->
-    <bean id="kenny" class="app.instrumental.Instrumentalist" autowire="byType">
-        <property name="name" value="kenny"></property>
-        <property name="song" value="Jingle Bells"></property>
+    <bean id="kenny" class="app.instrumental.Instrumentalist">
+        <property name="name" value="kenny"/>
+        <property name="song" value="Jingle Bells"/>
+        <property name="instrument" ref="saxophone"/>
     </bean>
 
     <bean id="frank" parent="baseSaxophonist">

@@ -1,19 +1,20 @@
-package app.instrumental;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
+package app.annotation.instrumental;
 
 import app.instrument.Instrument;
 import app.performer.Performer;
 import app.performer.exception.PerformerException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 
 @Configurable("pianist")
 public class Instrumentalist implements Performer {
 
 	private String name;
 	private String song;
+	@Autowired(required = false)
 	private Instrument instrument;
 
+//	@Autowired
 	public Instrumentalist(Instrument instrument) {
 		this.instrument = instrument;
 	}
@@ -24,6 +25,7 @@ public class Instrumentalist implements Performer {
 		this.instrument = instrument;
 	}
 
+//	@Autowired
 	public Instrumentalist() {
 
 	}
@@ -58,8 +60,14 @@ public class Instrumentalist implements Performer {
 		return song;
 	}
 
+//	@Autowired
 	public void setInstrument(Instrument instrument) {
 		this.instrument = instrument;
 	}
-	
+
+//	@Autowired
+	public void hereIsYourInstrument(Instrument instrument) {
+		this.instrument = instrument;
+	}
+
 }

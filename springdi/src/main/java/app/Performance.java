@@ -15,7 +15,8 @@ public class Performance {
 	public static void main(String[] args) {
 
 //		Main Container like a BeanFactory who have a lot of opportunities
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("/beans/idolbeans.xml", "/beans/autoInj.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext(
+				"beans/idolbeans.xml", "beans/autoInj.xml", "beans/annotation.xml");
 		
 //		poets/juggler
 		Performer performer = (Performer) ctx.getBean("poeticDuke");
@@ -30,6 +31,10 @@ public class Performance {
 		Performer kenny2 = (Performer) ctx.getBean("kenny2");
 // 		by constructor
 		Performer poetDukeeeeeeeee = (Performer) ctx.getBean("poetDukeeeeeeeee");
+
+//		annotation
+		Performer kenny3 = (Performer) ctx.getBean("kenny3");
+
 
 		Performer david = (Performer) ctx.getBean("david");
 		Performer frank = (Performer) ctx.getBean("frank");
@@ -69,6 +74,9 @@ public class Performance {
 
 			System.out.println(kenny2.toString());
 			kenny2.perform();
+
+			System.out.println(kenny3.toString());
+			kenny3.perform();
 
 			poetDukeeeeeeeee.perform();
 

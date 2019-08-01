@@ -9,6 +9,9 @@
         <fileset id="fileset2" name="Idolbeans" removed="false">
           <file>file://$MODULE_DIR$/resources/beans/idolbeans.xml</file>
         </fileset>
+        <fileset id="fileset3" name="Annotation" removed="false">
+          <file>file://$MODULE_DIR$/resources/beans/annotation.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>
