@@ -13,13 +13,44 @@
 
     <context:annotation-config/>
 
-    <bean id="instrument" class="app.instrument.Saxophone"/>
-    <bean id="instrument1" class="app.instrument.Saxophone"/>
-    <bean id="instrument2" class="app.instrument.Saxophone"/>
+<!--    @autowired -->
+    <bean id="saxophone1" class="app.instrument.Saxophone">
+        <qualifier value="winds"/>
+    </bean>
+<!--    <bean id="saxophone2" class="app.instrument.Saxophone">-->
+<!--        <qualifier value="winds"/>-->
+<!--    </bean>-->
+<!--    <bean id="saxophone3" class="app.instrument.Saxophone">-->
+<!--        <qualifier value="winds"/>-->
+<!--    </bean>-->
+
+    <bean id="piano1" class="app.instrument.Piano">
+        <qualifier value="keyboard"/>
+    </bean>
+<!--    <bean id="piano2" class="app.instrument.Piano">-->
+<!--        <qualifier value="keyboard"/>-->
+<!--    </bean>-->
+<!--    <bean id="piano3" class="app.instrument.Piano">-->
+<!--        <qualifier value="keyboard"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="guitar" class="app.instrument.Guitar">-->
+<!--        <qualifier value="stringed"/>-->
+<!--    </bean>-->
+
+<!--  P9AU7M29  -->
+    <bean id="guitar" class="app.instrument.Guitar"/>
+    <bean id="cymbal" class="app.instrument.Cymbal"/>
 
     <bean id="kenny3" class="app.annotation.instrumental.Instrumentalist">
         <property name="name" value="kenny3"/>
         <property name="song" value="Annotation song"/>
     </bean>
+
+
+<!--    @Inject-->
+    <bean class = "app.knife.Knife" scope="prototype"/>
+
+    <bean id = "knifeJuggler" class="app.juggler.KnifeJuggler"/>
 
 </beans>

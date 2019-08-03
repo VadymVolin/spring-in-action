@@ -1,5 +1,8 @@
-package app.instrument;
+package app.annotation.withoutbeans.instrument;
 
+import org.springframework.stereotype.Component;
+
+//@Component
 public class Harmonica implements Instrument {
 	
 	public Harmonica () {

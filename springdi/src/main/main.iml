@@ -12,6 +12,12 @@
         <fileset id="fileset3" name="Annotation" removed="false">
           <file>file://$MODULE_DIR$/resources/beans/annotation.xml</file>
         </fileset>
+        <fileset id="fileset4" name="Withoutbeans" removed="false">
+          <file>file://$MODULE_DIR$/resources/beans/withoutbeans.xml</file>
+        </fileset>
+        <fileset id="fileset5" name="Javaconfig" removed="false">
+          <file>file://$MODULE_DIR$/resources/beans/javaconfig.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>
@@ -24,5 +30,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
   </component>
 </module>

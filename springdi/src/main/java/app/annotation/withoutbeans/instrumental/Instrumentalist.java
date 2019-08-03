@@ -1,30 +1,25 @@
-package app.annotation.instrumental;
+package app.annotation.withoutbeans.instrumental;
 
-import app.annotation.myannotation.StringedInstrument;
-import app.annotation.myannotation.Strummed;
 import app.instrument.Instrument;
 import app.performer.Performer;
 import app.performer.exception.PerformerException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-//@Configurable(value = "guitar")
+@Component("eddie")
 public class Instrumentalist implements Performer {
 
+	@Value("eddie")
 	private String name;
+	@Value("Day in hell")
 	private String song;
-//	@Named("guitar")
-	@Autowired(required = false)
-//	@Qualifier(value = "keyboard")
-//	@StringedInstrument
-	@Strummed
-//	@Inject
+	@Inject
+	@Named("instrument")
 	private Instrument instrument;
-//	@Autowired
 
 	public Instrumentalist(Instrument instrument) {
 		this.instrument = instrument;
@@ -35,10 +30,9 @@ public class Instrumentalist implements Performer {
 		this.song = song;
 		this.instrument = instrument;
 	}
-//	@Autowired
 
 	public Instrumentalist() {
-
+		System.out.println("create eddie");
 	}
 
 	public void perform() throws PerformerException {
@@ -71,13 +65,7 @@ public class Instrumentalist implements Performer {
 		return song;
 	}
 
-//	@Autowired
 	public void setInstrument(Instrument instrument) {
-		this.instrument = instrument;
-	}
-
-//	@Autowired
-	public void hereIsYourInstrument(Instrument instrument) {
 		this.instrument = instrument;
 	}
 

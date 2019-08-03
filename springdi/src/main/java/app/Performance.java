@@ -16,7 +16,7 @@ public class Performance {
 
 //		Main Container like a BeanFactory who have a lot of opportunities
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(
-				"beans/idolbeans.xml", "beans/autoInj.xml", "beans/annotation.xml");
+				"beans/idolbeans.xml", "beans/autoInj.xml", "beans/annotation.xml", "beans/withoutbeans.xml");
 		
 //		poets/juggler
 		Performer performer = (Performer) ctx.getBean("poeticDuke");
@@ -25,24 +25,26 @@ public class Performance {
 		Performer performer3 = (Performer) ctx.getBean("duke2");
 		
 //		musician
-		Performer kenny = (Performer) ctx.getBean("kenny");
+//		Performer kenny = (Performer) ctx.getBean("kenny");
 		// autoconfig
 //		by type/name
-		Performer kenny2 = (Performer) ctx.getBean("kenny2");
+//		Performer kenny2 = (Performer) ctx.getBean("kenny2");
 // 		by constructor
-		Performer poetDukeeeeeeeee = (Performer) ctx.getBean("poetDukeeeeeeeee");
+//		Performer poetDukeeeeeeeee = (Performer) ctx.getBean("poetDukeeeeeeeee");
 
 //		annotation
 		Performer kenny3 = (Performer) ctx.getBean("kenny3");
+		Performer kknifeJuggler = (Performer) ctx.getBean("knifeJuggler");
+		Performer eddie = (Performer) ctx.getBean("eddie");
 
 
-		Performer david = (Performer) ctx.getBean("david");
-		Performer frank = (Performer) ctx.getBean("frank");
-		Performer carl = (Performer) ctx.getBean("carl");
-		Performer stevie = (Performer) ctx.getBean("stevie");
+//		Performer david = (Performer) ctx.getBean("david");
+//		Performer frank = (Performer) ctx.getBean("frank");
+//		Performer carl = (Performer) ctx.getBean("carl");
+//		Performer stevie = (Performer) ctx.getBean("stevie");
 		
 //		magician
-		Performer harry = (Performer) ctx.getBean("harry");
+//		Performer harry = (Performer) ctx.getBean("harry");
 		
 		
 //		CityList c = (CityList) ctx.getBean("cityList");
@@ -57,8 +59,8 @@ public class Performance {
 //			performer2.perform();
 //			performer3.perform();
 
-			System.out.println(kenny.toString());
-			kenny.perform();
+//			System.out.println(kenny.toString());
+//			kenny.perform();
 
 //			david.toString();
 //			david.perform();
@@ -72,13 +74,19 @@ public class Performance {
 //			stevie.toString();
 //			stevie.perform();
 
-			System.out.println(kenny2.toString());
-			kenny2.perform();
+//			System.out.println(kenny2.toString());
+//			kenny2.perform();
 
 			System.out.println(kenny3.toString());
 			kenny3.perform();
 
-			poetDukeeeeeeeee.perform();
+			kknifeJuggler.perform();
+
+			System.out.println(eddie.toString());
+			eddie.perform();
+
+//			poetDukeeeeeeeee.perform();
+
 
 //			harry.toString();
 //			harry.perform();

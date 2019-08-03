@@ -1,12 +1,10 @@
-package app.instrument;
+package app.annotation.withoutbeans.instrument;
 
 import app.annotation.myannotation.StringedInstrument;
 import app.annotation.myannotation.Strummed;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
-//@Qualifier("stringed")
-@StringedInstrument
-@Strummed
+//@Component
 public class Guitar implements Instrument {
 	
 	public Guitar() {

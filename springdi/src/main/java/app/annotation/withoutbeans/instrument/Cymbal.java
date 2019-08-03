@@ -1,8 +1,8 @@
-package app.instrument;
+package app.annotation.withoutbeans.instrument;
 
-import app.annotation.myannotation.StringedInstrument;
+import org.springframework.stereotype.Component;
 
-@StringedInstrument
+//@Component
 public class Cymbal implements Instrument {
 	
 	public Cymbal() {
