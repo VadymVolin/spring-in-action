@@ -140,4 +140,6 @@
                   value="#{cities.?[population gt 100000].![name + ', ' + state]}"></property>
     </bean>
 
+<!--    create aop aspect with som action-->
+    <bean id = "audience" class = "app.audience.Audience"/>
 </beans>
