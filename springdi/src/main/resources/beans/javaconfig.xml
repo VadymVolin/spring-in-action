@@ -11,7 +11,7 @@
 						http://www.springframework.org/schema/util
                     	http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
-    <context:component-scan base-package="app.">
+    <context:component-scan base-package="app.javaconfig">
         <context:include-filter type="assignable"
                                 expression="app.annotation.withoutbeans.instrument.Instrument"/>
     </context:component-scan>

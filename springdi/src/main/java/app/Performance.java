@@ -27,10 +27,10 @@ public class Performance {
 		Performer performer3 = (Performer) ctx.getBean("duke2");
 		
 //		musician
-//		Performer kenny = (Performer) ctx.getBean("kenny");
+		Performer kenny = (Performer) ctx.getBean("kenny");
 		// autoconfig
 //		by type/name
-//		Performer kenny2 = (Performer) ctx.getBean("kenny2");
+		Performer kenny2 = (Performer) ctx.getBean("kenny2");
 // 		by constructor
 //		Performer poetDukeeeeeeeee = (Performer) ctx.getBean("poetDukeeeeeeeee");
 
@@ -61,23 +61,23 @@ public class Performance {
 			performer2.perform();
 			performer3.perform();
 
-//			System.out.println(kenny.toString());
-//			kenny.perform();
+			System.out.println(kenny.toString());
+			kenny.perform();
 
 //			david.toString();
 //			david.perform();
 //
 //			frank.toString();
 //			frank.perform();
-//
+
 //			carl.toString();
 //			carl.perform();
 //
 //			stevie.toString();
 //			stevie.perform();
 
-//			System.out.println(kenny2.toString());
-//			kenny2.perform();
+			System.out.println(kenny2.toString());
+			kenny2.perform();
 
 //			System.out.println(kenny3.toString());
 //			kenny3.perform();
