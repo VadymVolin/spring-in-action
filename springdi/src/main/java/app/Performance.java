@@ -1,6 +1,8 @@
 package app;
 
 import java.util.List;
+
+import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,12 +14,12 @@ import app.performer.exception.PerformerException;
 
 public class Performance {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 //		Main Container like a BeanFactory who have a lot of opportunities
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(
 				"beans/idolbeans.xml", "beans/autoInj.xml", "beans/annotation.xml", "beans/withoutbeans.xml");
-		
+
 //		poets/juggler
 		Performer performer = (Performer) ctx.getBean("poeticDuke");
 		Performer performer1 = (Performer) ctx.getBean("duke");
@@ -33,9 +35,9 @@ public class Performance {
 //		Performer poetDukeeeeeeeee = (Performer) ctx.getBean("poetDukeeeeeeeee");
 
 //		annotation
-		Performer kenny3 = (Performer) ctx.getBean("kenny3");
-		Performer kknifeJuggler = (Performer) ctx.getBean("knifeJuggler");
-		Performer eddie = (Performer) ctx.getBean("eddie");
+//		Performer kenny3 = (Performer) ctx.getBean("kenny3");
+//		Performer knifeJuggler = (Performer) ctx.getBean("knifeJuggler");
+//		Performer eddie = (Performer) ctx.getBean("eddie");
 
 
 //		Performer david = (Performer) ctx.getBean("david");
@@ -54,10 +56,10 @@ public class Performance {
 //		}
 		try {
 			
-//			performer.perform();
-//			performer1.perform();
-//			performer2.perform();
-//			performer3.perform();
+			performer.perform();
+			performer1.perform();
+			performer2.perform();
+			performer3.perform();
 
 //			System.out.println(kenny.toString());
 //			kenny.perform();
@@ -77,13 +79,13 @@ public class Performance {
 //			System.out.println(kenny2.toString());
 //			kenny2.perform();
 
-			System.out.println(kenny3.toString());
-			kenny3.perform();
-
-			kknifeJuggler.perform();
-
-			System.out.println(eddie.toString());
-			eddie.perform();
+//			System.out.println(kenny3.toString());
+//			kenny3.perform();
+//
+//			knifeJuggler.perform();
+//
+//			System.out.println(eddie.toString());
+//			eddie.perform();
 
 //			poetDukeeeeeeeee.perform();
 

@@ -82,11 +82,11 @@
         </property>
     </bean>
 
-<!--    <bean id="carl" class="app.instrumental.Instrumentalist">-->
-<!--        <property name="song" value="#{kenny.song}"/>-->
-<!--        <property name="instrument"-->
-<!--                  value="#{(kenny.song eq 'Jingle Belllls')?saxophone:piano}"/>-->
-<!--    </bean>-->
+    <bean id="carl" class="app.instrumental.Instrumentalist">
+        <property name="song" value="#{kenny.song}"/>
+        <property name="instrument"
+                  value="#{(kenny.song eq 'Jingle Belllls')?saxophone:piano}"/>
+    </bean>
 
     <bean id="stevie" class="app.instrumental.AbstractInstrumentalist">
         <lookup-method name="getInstrument" bean="guitar"/>
@@ -148,13 +148,13 @@
 
     <aop:config>
         <aop:aspect ref="audience">
-            <aop:before pointcut="execution(* app.performer.Performer.perform(..))" method="takeSeats"/>
+            <aop:before pointcut="execution(* app.performer.Performer.performe(..))" method="takeSeats"/>
 
-            <aop:before pointcut="execution(* app.performer.Performer.perform(..))" method="turnOffCellPhones"/>
+            <aop:before pointcut="execution(* app.performer.Performer.performe(..))" method="turnOffCellPhones"/>
 
-            <aop:after-returning pointcut="execution(* app.performer.Performer.perform(..))" method="applaud"/>
+            <aop:after-returning pointcut="execution(* app.performer.Performer.performe(..))" method="applaud"/>
 
-            <aop:after-throwing pointcut="execution(* app.performer.Performer.perform(..))" method="demandRefund"/>
+            <aop:after-throwing pointcut="execution(* app.performer.Performer.performe(..))" method="demandRefund"/>
         </aop:aspect>
     </aop:config>
 
