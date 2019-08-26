@@ -153,6 +153,10 @@
     <!--    create aop aspect with som action and create aop:config with ref on audience-->
     <bean id="audience" class="app.audience.Audience"/>
 
+    <bean id = "magicianReader" class = "app.mindreader.MagicianReader"/>
+
+    <bean id="volunteer" class="app.mindreader.Volonteer"/>
+
     <!--    if we should change pointcut, we must change every aop-action-->
     <!--    <aop:config>-->
     <!--        <aop:aspect ref="audience">-->
@@ -182,6 +186,14 @@
         <aop:aspect ref = "audience">
             <aop:pointcut id = "performance2" expression="execution(* app.performer.Performer.perform(..))"/>
             <aop:around pointcut-ref="performance2" method="watchPerformance"/>
+        </aop:aspect>
+
+        <aop:aspect ref = "magicianReader">
+            <aop:pointcut id="thinking"
+                          expression="execution(* app.mindreader.Thinker.thinkOfSomething(String))
+                           and args(thoughts)"/>
+
+            <aop:before pointcut-ref="thinking" method="interceptThoughts" arg-names = "thoughts"/>
         </aop:aspect>
     </aop:config>
 
