@@ -1,4 +1,4 @@
-package app.mindreader;
+package app.aspects.annotationaspect.mindreader;
 
 public interface Thinker {
 

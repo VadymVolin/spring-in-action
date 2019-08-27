@@ -1,4 +1,4 @@
-package app.mindreader;
+package app.aspects.notannotationaspect.mindreader;
 
 public class MagicianReader implements MindReader{
     private String thoughts;
@@ -7,7 +7,6 @@ public class MagicianReader implements MindReader{
     public void interceptThoughts(String thoughts) {
         System.out.println("Intercepting volonteers thoughts");
         this.thoughts = thoughts;
-        System.out.println(thoughts);
     }
 
     @Override

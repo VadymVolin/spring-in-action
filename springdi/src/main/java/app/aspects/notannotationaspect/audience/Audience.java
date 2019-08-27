@@ -1,4 +1,4 @@
-package app.audience;
+package app.aspects.notannotationaspect.audience;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 

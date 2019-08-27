@@ -1,4 +1,4 @@
-package app.mindreader;
+package app.aspects.notannotationaspect.mindreader;
 
 public class Volonteer implements Thinker {
 
@@ -6,6 +6,7 @@ public class Volonteer implements Thinker {
 
     @Override
     public void thinkOfSomething(String thoughts) {
+        System.out.println("volunteer think about smth");
         this.thoughts = thoughts;
     }
 
