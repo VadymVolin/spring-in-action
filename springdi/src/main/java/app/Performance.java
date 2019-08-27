@@ -1,15 +1,20 @@
 package app;
 
+import app.performer.Performer;
+import app.performer.exception.PerformerException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class Performance {
 
     public static void main(String[] args) throws Exception {
 
 //		Main Container like a BeanFactory who have a lot of opportunities
-//		ApplicationContext ctx = new ClassPathXmlApplicationContext(
-//				"beans/idolbeans.xml", "beans/autoInj.xml", "beans/annotation.xml", "beans/withoutbeans.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext(
+				"beans/idolbeans.xml", "beans/autoInj.xml", "beans/annotation.xml", "beans/withoutbeans.xml");
 
 //		poets/juggler
-//		Performer performer = (Performer) ctx.getBean("poeticDuke");
+		Performer performer = (Performer) ctx.getBean("poeticDuke");
 //		Performer performer1 = (Performer) ctx.getBean("duke");
 //		Performer performer2 = (Performer) ctx.getBean("duke1");
 //		Performer performer3 = (Performer) ctx.getBean("duke2");
@@ -46,9 +51,9 @@ public class Performance {
 
 //		aspects
 
-//		try {
+		try {
 
-//			performer.perform();
+			performer.perform();
 //			performer1.perform();
 //			performer2.perform();
 //			performer3.perform();
@@ -83,9 +88,9 @@ public class Performance {
 
 //			harry.toString();
 //			harry.perform();
-//		} catch (PerformerException e) {
-//			e.printStackTrace();
-//		}
+		} catch (PerformerException e) {
+			e.printStackTrace();
+		}
 
     }
 

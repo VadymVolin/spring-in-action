@@ -31,15 +31,6 @@ public class SpringTest {
 
     }
 
-    @Test
-    public void testAnnotationAspectMindReader() {
 
-        app.aspects.annotationaspect.mindreader.Thinker annotationVolunteer =
-                (app.aspects.annotationaspect.mindreader.Thinker) ctx.getBean("annotationVolunteer");
-        app.aspects.annotationaspect.mindreader.MindReader annotMindReader =
-                (app.aspects.annotationaspect.mindreader.MindReader) ctx.getBean("annotationMagicianReader");
-        annotationVolunteer.thinkOfSomething("I think for @aspect magicReader");
-        assertEquals(annotationVolunteer.getThoughts(), annotMindReader.getThoughts());
-    }
 
 }

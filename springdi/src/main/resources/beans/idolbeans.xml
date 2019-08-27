@@ -198,14 +198,14 @@
             <aop:after pointcut-ref="thinking" method="interceptThoughts" arg-names="thoughts"/>
         </aop:aspect>
 
-        <aop:aspect>
-            <!--        add new functional interface Contestant to Perform beans -->
-            <aop:declare-parents
-                    implement-interface="app.aspects.notannotationaspect.contestant.Contestant"
-                    default-impl="app.aspects.notannotationaspect.contestant.GraciousContestant"
-                    types-matching="app.performer.Performer+"/>
-            <!--                    delegate-ref="contestantDelegate"-->
-        </aop:aspect>
+<!--        <aop:aspect>-->
+<!--            &lt;!&ndash;        add new functional interface Contestant to Perform beans &ndash;&gt;-->
+<!--            <aop:declare-parents-->
+<!--                    implement-interface="app.aspects.notannotationaspect.contestant.Contestant"-->
+<!--                    default-impl="app.aspects.notannotationaspect.contestant.GraciousContestant"-->
+<!--                    types-matching="app.performer.Performer+"/>-->
+<!--            &lt;!&ndash;                    delegate-ref="contestantDelegate"&ndash;&gt;-->
+<!--        </aop:aspect>-->
     </aop:config>
 
     <!--    use @AspectJ annotation for create aspect with action on point-->
@@ -214,6 +214,24 @@
     <bean id="annotationMagicianReader" class="app.aspects.annotationaspect.mindreader.MagicianReader"/>
 
     <bean id="annotationVolunteer" class="app.aspects.annotationaspect.mindreader.Volonteer"/>
+
+    <bean class= "app.aspects.annotationaspect.contestant.ContestantIntroducer"/>
+
+
+<!--    create criticisme bean for aspect-->
+    <bean id = "criticismEngine" class = "app.judge.CriticismEngineImpl">
+        <property name = "criticismPool">
+            <list>
+                <value>I'm not being rude, but that was appalling.</value>
+                <value>You may be the least talented person in this show.</value>
+                <value>Do everyone a favor and keep your day job.</value>
+            </list>
+        </property>
+    </bean>
+<!--insert aspect  judge-->
+    <bean class="app.judge.JudgeAspect" factory-method="aspectOf">
+        <property name="criticismEngine" ref = "criticismEngine"/>
+    </bean>
 
     <aop:aspectj-autoproxy/>
 
