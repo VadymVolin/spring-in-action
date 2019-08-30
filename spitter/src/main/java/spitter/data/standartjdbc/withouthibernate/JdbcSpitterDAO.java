@@ -1,4 +1,4 @@
-package spitter.data.standartjdbc;
+package spitter.data.standartjdbc.withouthibernate;
 
 import spitter.data.Spitter;
 
@@ -16,7 +16,7 @@ public class JdbcSpitterDAO implements SpitterDAO {
         this.dataSource = dataSource;
     }
 
-    private static final String SQL_INSERT = "INSERT INTO spitter(username, password, fullname) values(?, ?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO spitter(id, username, password, fullname) values(?, ?, ?, ?)";
 
     @Override
     public void insert(Spitter spitter) {
@@ -26,9 +26,10 @@ public class JdbcSpitterDAO implements SpitterDAO {
         try {
             connection = dataSource.getConnection();
             statement = connection.prepareStatement(SQL_INSERT);
-            statement.setString(1, spitter.getUserName());
-            statement.setString(2, spitter.getPassword());
-            statement.setString(3, spitter.getFullName());
+            statement.setInt(1, spitter.getId());
+            statement.setString(2, spitter.getUserName());
+            statement.setString(3, spitter.getPassword());
+            statement.setString(4, spitter.getFullName());
             statement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -90,6 +91,34 @@ public class JdbcSpitterDAO implements SpitterDAO {
                 }
             }
 
+        }
+    }
+
+    private static final String SQL_DELETE = "DELETE FROM spitter WHERE id = ?";
+    @Override
+    public void delete(Spitter spitter) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = dataSource.getConnection();
+            statement = connection.prepareStatement(SQL_DELETE);
+            statement.setInt(1, spitter.getId());
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                }
+            }
         }
     }
 
