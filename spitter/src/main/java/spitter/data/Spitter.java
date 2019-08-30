@@ -1,7 +1,14 @@
 package spitter.data;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="spitter")
 public class Spitter {
 
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String userName;
     private String password;

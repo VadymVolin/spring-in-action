@@ -1,16 +1,26 @@
 package spitter.data.standartjdbc.hibernate;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import spitter.data.Spitter;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class JdbcSpitterDAO implements SpitterDAO {
 
-    DataSource dataSource;
+    private DataSource dataSource;
+    private SessionFactory sessionFactory;
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -20,86 +30,41 @@ public class JdbcSpitterDAO implements SpitterDAO {
 
     @Override
     public void insert(Spitter spitter) {
-
-        Connection connection = null;
-        PreparedStatement statement = null;
-        try {
-            connection = dataSource.getConnection();
-            statement = connection.prepareStatement(SQL_INSERT);
-            statement.setInt(1, spitter.getId());
-            statement.setString(2, spitter.getUserName());
-            statement.setString(3, spitter.getPassword());
-            statement.setString(4, spitter.getFullName());
-            statement.execute();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                }
-            }
-
-        }
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.save(spitter);
+        tx.commit();
+        session.close();
     }
 
     private static final String SQL_SELECT = "SELECT id, username, password, fullname FROM spitter WHERE id = ?";
 
     @Override
     public Spitter findById(int id) {
-        Connection connection = null;
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        try {
-            connection = dataSource.getConnection();
-            statement = connection.prepareStatement(SQL_SELECT);
-            statement.setInt(1, id);
-            resultSet = statement.executeQuery();
-            Spitter spitter = null;
-            if (resultSet.next()) {
-                spitter = new Spitter(
-                        resultSet.getInt("id"),
-                        resultSet.getString("username"),
-                        resultSet.getString("password"),
-                        resultSet.getString("fullname"));
-            }
-            return spitter;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                }
-            }
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                }
-            }
+        Session session = sessionFactory.openSession();
+        Spitter spitter = session.get(Spitter.class, id);
+        session.close();
+        return spitter;
+    }
 
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                }
-            }
-
-        }
+    @Override
+    public List<Spitter> list() {
+        Session session = sessionFactory.openSession();
+        List<Spitter> spitters = (List<Spitter>) session.createSQLQuery("select id, username, password, fullname from spitter")
+                .addEntity(Spitter.class)
+                .list();
+        session.close();
+        return spitters;
     }
 
     @Override
     public void delete(Spitter spitter) {
-
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        Spitter spitter1 = session.get(Spitter.class, spitter.getId());
+        session.delete(spitter1);
+        tx.commit();
+        session.close();
     }
 
 }
