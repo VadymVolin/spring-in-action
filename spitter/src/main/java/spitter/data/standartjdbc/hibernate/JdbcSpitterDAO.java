@@ -62,9 +62,15 @@ public class JdbcSpitterDAO implements SpitterDAO {
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         Spitter spitter1 = session.get(Spitter.class, spitter.getId());
-        session.delete(spitter1);
-        tx.commit();
-        session.close();
+        if (spitter1 != null) {
+            session.delete(spitter1);
+            tx.commit();
+            session.close();
+        } else {
+            tx.commit();
+            session.close();
+            return;
+        }
     }
 
 }

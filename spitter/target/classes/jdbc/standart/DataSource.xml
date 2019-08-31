@@ -22,7 +22,7 @@
        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
 
 
-    <bean id = "propertyConfigurer" class = "org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="jdbc/database.properties"/>
     </bean>
 
@@ -36,11 +36,11 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-<!--    <bean id="spitterDAO" class="spitter.data.standartjdbc.withouthibernate.JdbcSpitterDAO">-->
-<!--        <property name="dataSource" ref="dataSource"/>-->
-<!--    </bean>-->
+    <!--    <bean id="spitterDAO" class="spitter.data.standartjdbc.withouthibernate.JdbcSpitterDAO">-->
+    <!--        <property name="dataSource" ref="dataSource"/>-->
+    <!--    </bean>-->
 
-<!--    use Hibernate-->
+    <!--    use Hibernate-->
 
     <!-- Hibernate 3 XML SessionFactory Bean definition-->
     <!-- 	<bean id="hibernate3SessionFactory"
@@ -61,7 +61,7 @@
     <!-- Hibernate 4 SessionFactory Bean definition -->
     <bean id="hibernate4AnnotatedSessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
         <property name="annotatedClasses">
             <list>
                 <value>spitter.data.Spitter</value>
