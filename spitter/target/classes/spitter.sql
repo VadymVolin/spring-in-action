@@ -27,4 +27,4 @@ insert into spitter(username, password, fullname) values("vadim13", "109876543",
 insert into spitter(username, password, fullname) values("vadim14", "10987654", "Vadim Volin");
 insert into spitter(username, password, fullname) values("vadim15", "1098765", "Vadim Volin");
 */
-
+select * from spitter;
