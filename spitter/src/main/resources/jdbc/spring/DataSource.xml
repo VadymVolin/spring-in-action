@@ -41,7 +41,7 @@
     <!--    </bean>-->
 
     <!--    use jdbc connection -->
-<!--    connect properties file-->
+    <!--    connect properties file-->
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="jdbc/database.properties"/>
     </bean>
@@ -54,11 +54,16 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-        <bean id = "jdbcTemplate" class = "org.springframework.jdbc.core.JdbcTemplate">
-            <constructor-arg name = "dataSource" ref="dataSource"/>
-        </bean>
+    <!--    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg name="dataSource" ref="dataSource"/>
+    </bean>
 
-        <bean id = "spitterDAO" class = "spitter.data.springjdbc.dao.JdbcSpitterDAO">
-            <property name="jdbcTemplate" ref="jdbcTemplate"/>
-        </bean>
+    <bean id="spitterDAO" class="spitter.data.springjdbc.springdaosupport.JdbcSpitterDAO">
+        <!--            we can use  property  jdbcTemplate or dataSource,
+        but id we comment jdbcTemplate and set in property dataSource Spring auto create JdbcTemplate
+         and set them in JdbcDaoSupport-->
+        <!--            <property name="jdbcTemplate" ref="jdbcTemplate"/>-->
+                    <property name="dataSource" ref="dataSource"/>
+    </bean>
 </beans>

@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spitter.data.Spitter;
-import spitter.data.springjdbc.dao.SpitterDAO;
+import spitter.data.springjdbc.springdaosupport.SpitterDAO;
 
 public class SpringJdbcTest {
 
@@ -21,26 +21,26 @@ public class SpringJdbcTest {
     @Test
     public void testSelectById() {
         SpitterDAO spitterDAO = (SpitterDAO) context.getBean("spitterDAO");
-            System.out.println(spitterDAO.findById(1777467392));
+            System.out.println(spitterDAO.findById(406126592));
     }
 
     @Test
     public void testSelectByIdWithRowMapper() {
         SpitterDAO spitterDAO = (SpitterDAO) context.getBean("spitterDAO");
-            System.out.println(spitterDAO.findById(1777467392));
+            System.out.println(spitterDAO.findById(406126592));
     }
 
     @Test
     public void testSelectByUserName() {
         SpitterDAO spitterDAO = (SpitterDAO) context.getBean("spitterDAO");
-        System.out.println(spitterDAO.findByUserName("s"));
+        System.out.println(spitterDAO.findByUserName("l"));
 
     }
 
     @Test
     public void testDeleteById() {
         SpitterDAO spitterDAO = (SpitterDAO) context.getBean("spitterDAO");
-        System.out.println(spitterDAO.deleteById(1777467392));
+        System.out.println(spitterDAO.deleteById(406126592));
     }
 
 }
