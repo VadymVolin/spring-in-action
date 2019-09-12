@@ -1,21 +1,15 @@
-package spitter.data.springjdbc.dao;
+package spitter.data.springjdbc.jdbcDao;
 
 //import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import spitter.data.Spitter;
 
-import java.lang.reflect.Type;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
-import java.util.UUID;
 
 public class JdbcSpitterDAO implements SpitterDAO {
 

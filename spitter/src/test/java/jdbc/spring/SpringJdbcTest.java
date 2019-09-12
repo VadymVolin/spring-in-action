@@ -21,13 +21,13 @@ public class SpringJdbcTest {
     @Test
     public void testSelectById() {
         SpitterDAO spitterDAO = (SpitterDAO) context.getBean("spitterDAO");
-            System.out.println(spitterDAO.findById(406126592));
+            System.out.println(spitterDAO.findById(782434304));
     }
 
     @Test
     public void testSelectByIdWithRowMapper() {
         SpitterDAO spitterDAO = (SpitterDAO) context.getBean("spitterDAO");
-            System.out.println(spitterDAO.findById(406126592));
+            System.out.println(spitterDAO.findById(782434304));
     }
 
     @Test
@@ -40,7 +40,7 @@ public class SpringJdbcTest {
     @Test
     public void testDeleteById() {
         SpitterDAO spitterDAO = (SpitterDAO) context.getBean("spitterDAO");
-        System.out.println(spitterDAO.deleteById(406126592));
+        System.out.println(spitterDAO.deleteById(782434304));
     }
 
 }

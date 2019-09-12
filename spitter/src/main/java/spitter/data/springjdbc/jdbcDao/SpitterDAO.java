@@ -1,4 +1,4 @@
-package spitter.data.springjdbc.dao;
+package spitter.data.springjdbc.jdbcDao;
 
 import spitter.data.Spitter;
 

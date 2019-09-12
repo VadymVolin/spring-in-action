@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Spitter {
 
     @Id
-    @Column(name="id")
+    @Column(name="id", columnDefinition = "int default 0")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String userName;
