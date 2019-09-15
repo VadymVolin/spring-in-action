@@ -35,9 +35,12 @@ public class HibernateSpitterDao implements SpitterDAO {
     @Override
     public void addSpitter(Spitter spitter) {
         spitter.setId(queryForIdentity());
+        Session session = sessionFactory.openSession();
         Transaction tx = currentSession().beginTransaction();
-        currentSession().save(spitter);
+        int id = (int) session.save(spitter);
+        spitter.setId(id);
         tx.commit();
+        session.close();
     }
 
     @Override
@@ -52,7 +55,9 @@ public class HibernateSpitterDao implements SpitterDAO {
     public ArrayList<Spitter> list() {
         Transaction tx = currentSession().beginTransaction();
         ArrayList<Spitter> list;
-        list = (ArrayList<Spitter>) currentSession().createSQLQuery("SELECT * FROM spitter").list();
+        list = (ArrayList<Spitter>) currentSession().createSQLQuery("SELECT * FROM spitter")
+                .addEntity(Spitter.class)
+                .list();
         tx.commit();
         if (list.size() > 0) {
             return list;
@@ -64,7 +69,8 @@ public class HibernateSpitterDao implements SpitterDAO {
     @Override
     public void delete(Spitter spitter) {
         Transaction tx = currentSession().beginTransaction();
-        currentSession().delete(spitter);
+        Spitter deleteObject = currentSession().get(Spitter.class, spitter.getId());
+        currentSession().delete(deleteObject);
         tx.commit();
     }
 

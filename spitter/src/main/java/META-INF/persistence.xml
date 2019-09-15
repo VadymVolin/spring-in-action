@@ -1,0 +1,20 @@
+<persistence xmlns:http="http://java.sun.com/xml/ns/persistence" vesion="1.0">
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="jdbc/database.properties"/>
+    </bean>
+
+    <persistence-unit name="spitter">
+        <class>spitter.data.Spitter</class>
+
+        <properties>
+            <property name="toplink.jdbc.driver" value="${jdbc.driverClassName}"/>
+            <property name="toplink.jdbc.url" value="${jdbc.url}"/>
+            <property name="toplink.jdbc.user" value="${jdbc.username}"/>
+            <property name="toplink.jdbc.password" value="${jdbc.password}"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
+
+<!-- after this in file config Spring we create bean localEntityManagerFactoryBean-->

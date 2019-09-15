@@ -3,15 +3,18 @@ package spitter.data;
 import javax.persistence.*;
 
 @Entity
-@Table(name="spitter")
+@Table(name="spitter", catalog = "spitter")
 public class Spitter {
 
     @Id
-    @Column(name="id", columnDefinition = "int default 0")
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "username")
     private String userName;
+    @Column(name = "password")
     private String password;
+    @Column(name = "fullname")
     private String fullName;
 
     public Spitter() {

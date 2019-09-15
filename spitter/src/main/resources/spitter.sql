@@ -1,15 +1,13 @@
-/*
 create table `spitter` (
-	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	`id` int(10) unsigned NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `fullname` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-)ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-*/
--- test data 
+)ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+-- -- test data 
 
-/*
+
 insert into spitter(id, username, password, fullname) values(1,"vadim1", "1", "Vadim Volin");
 insert into spitter(username, password, fullname) values("vadim1", "1", "Vadim Volin");
 insert into spitter(username, password, fullname) values("vadim2", "12", "Vadim Volin");
@@ -26,5 +24,6 @@ insert into spitter(username, password, fullname) values("vadim12", "1098765432"
 insert into spitter(username, password, fullname) values("vadim13", "109876543", "Vadim Volin");
 insert into spitter(username, password, fullname) values("vadim14", "10987654", "Vadim Volin");
 insert into spitter(username, password, fullname) values("vadim15", "1098765", "Vadim Volin");
-*/
+
+SET foreign_key_checks = 0;
 select * from spitter;

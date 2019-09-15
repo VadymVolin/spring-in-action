@@ -7,7 +7,7 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:lang="http://www.springframework.org/schema/lang"
        xmlns:jee="http://www.springframework.org/schema/jee"
-
+       xmlns:tx="http://www.springframework.org/schema/tx"
 
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
@@ -20,7 +20,8 @@
         http://www.springframework.org/schema/util/spring-util.xsd
         http://www.springframework.org/schema/lang
         http://www.springframework.org/schema/lang/spring-lang-3.0.xsd
-       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- Module Spring JDBC With HIBERNATE-->
 
@@ -42,6 +43,7 @@
 
     <!--    use jdbc connection -->
     <!--    connect properties file-->
+
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="jdbc/database.properties"/>
     </bean>
@@ -55,49 +57,86 @@
     </bean>
 
     <!--    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">-->
-<!--    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
-<!--        <constructor-arg name="dataSource" ref="dataSource"/>-->
-<!--    </bean>-->
+    <!--    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
+    <!--        <constructor-arg name="dataSource" ref="dataSource"/>-->
+    <!--    </bean>-->
 
-<!--    <bean id="spitterDAO" class="spitter.data.springjdbc.springdaosupport.JdbcSpitterDAO">-->
-        <!--            we can use  property  jdbcTemplate or dataSource,
-        but id we comment jdbcTemplate and set in property dataSource Spring auto create JdbcTemplate
-         and set them in JdbcDaoSupport-->
-        <!--            <property name="jdbcTemplate" ref="jdbcTemplate"/>-->
-<!--                    <property name="dataSource" ref="dataSource"/>-->
-<!--    </bean>-->
+    <!--    <bean id="spitterDAO" class="spitter.data.springjdbc.springdaosupport.JdbcSpitterDAO">-->
+    <!--            we can use  property  jdbcTemplate or dataSource,
+    but id we comment jdbcTemplate and set in property dataSource Spring auto create JdbcTemplate
+     and set them in JdbcDaoSupport-->
+    <!--            <property name="jdbcTemplate" ref="jdbcTemplate"/>-->
+    <!--                    <property name="dataSource" ref="dataSource"/>-->
+    <!--    </bean>-->
 
-<!--    Spring with Hibernate on jdbc-->
+    <!--    Spring with Hibernate on jdbc-->
 
     <!-- Hibernate 4 SessionFactory Bean definition -->
-    <context:component-scan base-package="spitter.data.springjdbc.springplushibernate"/>
+    <!--    <context:component-scan base-package="spitter.data.springjdbc.springplushibernate"/>-->
 
-    <bean id="hibernate4AnnotatedSessionFactory"
-          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <!--    <bean id="hibernate4AnnotatedSessionFactory"-->
+    <!--          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">-->
+    <!--        <property name="dataSource" ref="dataSource"/>-->
+    <!--&lt;!&ndash;        <property name="mappingResources">&ndash;&gt;-->
+    <!--&lt;!&ndash;            <list>&ndash;&gt;-->
+    <!--&lt;!&ndash;                <value>jdbc/Spitter.hbm.xml</value>&ndash;&gt;-->
+    <!--&lt;!&ndash;            </list>&ndash;&gt;-->
+    <!--&lt;!&ndash;        </property>&ndash;&gt;-->
+    <!--        <property name="packagesToScan">-->
+    <!--            <list>-->
+    <!--                <value>spitter.data</value>-->
+    <!--            </list>-->
+    <!--        </property>-->
+    <!--        <property name="hibernateProperties">-->
+    <!--            <props>-->
+    <!--                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>-->
+    <!--                <prop key="hibernate.current_session_context_class">thread</prop>-->
+    <!--                <prop key="hibernate.show_sql">true</prop>-->
+    <!--            </props>-->
+    <!--        </property>-->
+    <!--    </bean>-->
+
+    <!--    <bean id = "hibernateSpitterDao" class="spitter.data.springjdbc.springplushibernate.HibernateSpitterDao">-->
+    <!--    </bean>-->
+
+
+    <!--    <bean class = "org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>-->
+
+    <!--    ________________________________________________________________________________________________-->
+    <!--    use JPA and Spring-->
+
+    <!--    after create persistence.xml we create bean with class LicalEntityManagerFactoryBean-->
+
+    <!--    <bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">-->
+    <!--        <property name="persistenceUnitName" value="spitter"/>-->
+    <!--    </bean>-->
+
+    <!--    after create persistence.xml we create bean with class LicalContainerEntityManagerFactoryBean-->
+    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="database" value="MYSQL"/>
+        <property name="showSql" value="true"/>
+        <property name="generateDdl" value="false"/>
+        <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect"/>
+    </bean>
+
+    <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="annotatedClasses">
-            <list>
-                <value>spitter.data.Spitter</value>
-            </list>
-        </property>
-<!--        <property name="packagesToScan">-->
-<!--            <list>-->
-<!--                <value>spitter.data</value>-->
-<!--            </list>-->
-<!--        </property>-->
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-                <prop key="hibernate.current_session_context_class">thread</prop>
-                <prop key="hibernate.show_sql">true</prop>
-            </props>
-        </property>
+        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+        <property name="persistenceUnitName" value="Spitter"></property>
+        <property name="packagesToScan" value="spitter.data"></property>
     </bean>
 
-    <bean id = "hibernateSpitterDao" class="spitter.data.springjdbc.springplushibernate.HibernateSpitterDao">
+    <bean id="jpaSpitterDao" class="spitter.data.jpa.JpaSpitterDao"/>
+
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" name="TransactionManager">
+        <property name="entityManagerFactory" ref="emf"/>
     </bean>
 
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
+    <!--    after create persistence.xml we create entityManagerFactory from jndi-->
+    <!--    <jee:jndi-lookup id="emf" jndi-name="persistence/spitter"/>-->
 
-    <bean class = "org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 </beans>
