@@ -1,10 +1,9 @@
-create table `spitter` (
-	`id` int(10) unsigned NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `fullname` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-)ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+CREATE TABLE `spitter` (
+    `id` INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `username` VARCHAR(100) NOT NULL,
+    `password` VARCHAR(100) NOT NULL,
+    `fullname` VARCHAR(100) NOT NULL
+)  ENGINE=INNODB AUTO_INCREMENT=0 DEFAULT CHARSET=UTF8;
 -- -- test data 
 
 
@@ -26,4 +25,8 @@ insert into spitter(username, password, fullname) values("vadim14", "10987654", 
 insert into spitter(username, password, fullname) values("vadim15", "1098765", "Vadim Volin");
 
 SET foreign_key_checks = 0;
-select * from spitter;
+SELECT 
+    *
+FROM
+    spitter;
+
