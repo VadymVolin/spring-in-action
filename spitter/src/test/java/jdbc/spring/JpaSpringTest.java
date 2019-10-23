@@ -18,8 +18,18 @@ public class JpaSpringTest {
         dao.addSpitter(spitter);
         Spitter findElem = dao.findById(spitter.getId());
         System.out.println("Find elem : " + findElem);
+        findElem.setUserName("newTestName");
+        findElem.setPassword("newTestPass");
+        findElem.setFullName("newTestFullName");
+        dao.updateSpitter(findElem);
+        Spitter findAfteUpdate = dao.findById(findElem.getId());
+        System.out.println(findAfteUpdate);
         dao.delete(spitter);
         System.out.println("find after delete :" + dao.findById(spitter.getId()));
+        System.out.println("-----------------------------------------------");
+        for (int i = 0; i < 30; i++) {
+            System.out.println(dao.findById(i));
+        }
     }
 
 }

@@ -1,6 +1,9 @@
 package spitter.data.jpa;
 
 import org.hibernate.Session;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import spitter.data.Spitter;
@@ -22,13 +25,22 @@ public class JpaSpitterDao implements SpitterDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
+
     @Override
     public void addSpitter(Spitter spitter) {
         Session session = entityManager.unwrap(Session.class);
         entityManager.persist(spitter);
     }
 
+    @CachePut("updateSpitter")
+    @Override
+    public void updateSpitter(Spitter spitter) {
+        Session session = entityManager.unwrap(Session.class);
+        entityManager.merge(spitter);
+    }
+
     @Transactional
+    @CachePut("spitterObject")
     @Override
     public Spitter findById(int id) {
         Session session = entityManager.unwrap(Session.class);
@@ -36,6 +48,7 @@ public class JpaSpitterDao implements SpitterDAO {
         return spitter;
     }
 
+    @CachePut("spitters")
     @Override
     public List<Spitter> list() {
         Session session = entityManager.unwrap(Session.class);
@@ -43,6 +56,7 @@ public class JpaSpitterDao implements SpitterDAO {
         return objectList;
     }
 
+    @CacheEvict("deleteSpitter")
     @Override
     public void delete(Spitter spitter) {
         Session session = entityManager.unwrap(Session.class);
