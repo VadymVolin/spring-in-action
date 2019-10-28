@@ -27,9 +27,7 @@ public class JpaSpringTest {
         dao.delete(spitter);
         System.out.println("find after delete :" + dao.findById(spitter.getId()));
         System.out.println("-----------------------------------------------");
-        for (int i = 0; i < 30; i++) {
-            System.out.println(dao.findById(i));
-        }
+
     }
 
 }
