@@ -8,6 +8,6 @@ public interface SpitterService {
     public void editSpitter(Spitter spitter);
     public Spitter findSpitter(int id);
     public void deleteSpitter(Spitter spitter);
-    public void listSpitter(Spitter spitter);
+    public void listSpitter();
 
 }
