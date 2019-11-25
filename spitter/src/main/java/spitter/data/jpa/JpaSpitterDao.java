@@ -28,14 +28,14 @@ public class JpaSpitterDao implements SpitterDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
-//    @Transactional
+    //    @Transactional
     @Override
     public void addSpitter(Spitter spitter) {
         Session session = entityManager.unwrap(Session.class);
         entityManager.persist(spitter);
     }
 
-//    @Transactional
+    //    @Transactional
     @CachePut("updateSpitter")
     @Override
     public void updateSpitter(Spitter spitter) {
@@ -43,7 +43,7 @@ public class JpaSpitterDao implements SpitterDAO {
         entityManager.merge(spitter);
     }
 
-//    @Transactional
+    //    @Transactional
     @CachePut("spitterObject")
     @Override
     public Spitter findById(int id) {
@@ -52,7 +52,7 @@ public class JpaSpitterDao implements SpitterDAO {
         return spitter;
     }
 
-//    @Transactional
+    //    @Transactional
     @CachePut("spitters")
     @Override
     public List<Spitter> list() {
@@ -62,7 +62,7 @@ public class JpaSpitterDao implements SpitterDAO {
     }
 
 
-//    @Transactional
+    //    @Transactional
     @CacheEvict("deleteSpitter")
     @Override
     public void delete(Spitter spitter) {

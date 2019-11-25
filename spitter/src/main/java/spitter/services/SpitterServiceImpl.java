@@ -43,7 +43,8 @@ public class SpitterServiceImpl implements SpitterService {
             }
         });
     }
-// TODO: start us transaction
+
+    // TODO: start us transaction
     @Override
     public Spitter findSpitter(int id) {
         Spitter spitter = transactionTemplate.execute(new TransactionCallback<Spitter>() {
