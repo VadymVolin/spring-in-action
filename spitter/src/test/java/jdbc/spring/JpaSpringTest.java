@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spitter.data.Spitter;
 import spitter.data.jpa.SpitterDAO;
+import spitter.services.SpitterServiceImpl;
 
 public class JpaSpringTest {
 
@@ -14,18 +15,18 @@ public class JpaSpringTest {
 
     @Test
     public void testAll() {
-        SpitterDAO dao = (SpitterDAO) context.getBean("jpaSpitterDao");
-        dao.addSpitter(spitter);
-        Spitter findElem = dao.findById(spitter.getId());
+        SpitterServiceImpl service = (SpitterServiceImpl) context.getBean("spitterServiceImpl");
+        service.saveSpitter(spitter);
+        Spitter findElem = service.findSpitter(spitter.getId());
         System.out.println("Find elem : " + findElem);
         findElem.setUserName("newTestName");
         findElem.setPassword("newTestPass");
         findElem.setFullName("newTestFullName");
-        dao.updateSpitter(findElem);
-        Spitter findAfteUpdate = dao.findById(findElem.getId());
+        service.editSpitter(findElem);
+        Spitter findAfteUpdate = service.findSpitter(findElem.getId());
         System.out.println(findAfteUpdate);
-        dao.delete(spitter);
-        System.out.println("find after delete :" + dao.findById(spitter.getId()));
+        service.deleteSpitter(spitter);
+        System.out.println("find after delete :" + service.findSpitter(spitter.getId()));
         System.out.println("-----------------------------------------------");
 
     }

@@ -2,11 +2,13 @@ package spitter.data.jpa;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionTemplate;
 import spitter.data.Spitter;
 
 import javax.persistence.EntityManager;
@@ -16,7 +18,6 @@ import java.util.List;
 import java.util.Random;
 
 @Repository("spitter")
-@Transactional
 public class JpaSpitterDao implements SpitterDAO {
 
     private Random random = new Random();
@@ -27,15 +28,14 @@ public class JpaSpitterDao implements SpitterDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
-
-    @Transactional
+//    @Transactional
     @Override
     public void addSpitter(Spitter spitter) {
         Session session = entityManager.unwrap(Session.class);
         entityManager.persist(spitter);
     }
 
-    @Transactional
+//    @Transactional
     @CachePut("updateSpitter")
     @Override
     public void updateSpitter(Spitter spitter) {
@@ -43,7 +43,7 @@ public class JpaSpitterDao implements SpitterDAO {
         entityManager.merge(spitter);
     }
 
-    @Transactional
+//    @Transactional
     @CachePut("spitterObject")
     @Override
     public Spitter findById(int id) {
@@ -52,7 +52,7 @@ public class JpaSpitterDao implements SpitterDAO {
         return spitter;
     }
 
-    @Transactional
+//    @Transactional
     @CachePut("spitters")
     @Override
     public List<Spitter> list() {
@@ -62,7 +62,7 @@ public class JpaSpitterDao implements SpitterDAO {
     }
 
 
-    @Transactional
+//    @Transactional
     @CacheEvict("deleteSpitter")
     @Override
     public void delete(Spitter spitter) {
