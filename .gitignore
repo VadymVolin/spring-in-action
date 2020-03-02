@@ -8,7 +8,7 @@
 *.so
 
 .idea
-
+target
 
 *.so
 

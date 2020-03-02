@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:ehcache="http://www.springframework.org/schema/aop"
+       xmlns:jdbc="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.springframework.org/schema/cache
+                           http://www.springframework.org/schema/cache/spring-cache.xsd
+                           http://www.springmodules.org/schema/ehcache">
+
+    <cache:annotation-driven />
+    <bean id = "cacheManager" class = "org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean name="updateSpitter" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+                <bean name="deleteSpitter" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+                <bean name="spitterObject" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+                <bean name="spitters" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+            </set>
+        </property>
+    </bean>
+
+</beans>
